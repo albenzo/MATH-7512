@@ -1,0 +1,121 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+\begin{problem}[1]
+  What familiar space is the quotient $\Delta$-complex of a $2$-simplex
+  $[v_0,v_1,v_2]$ obtained by identifying the edges $[v_0,v_1]$ and
+  $[v_1,v_2]$, preserving the ordering of vertices?
+\end{problem}
+
+Use the following drawing of $X$ as our guide for the boundary maps.
+
+\textbf{Insert pretty picture here}
+
+Since we are identifying edges $e_1$ and $e_2$ this also induces the
+identification of $v_1,v_2,$ and $v_3$. We'll call them $e$
+and $v$ respectively. Then:
+\begin{align*}
+  \partial f &= 2e+e_3\\
+  \partial e &= v-v = 0\\
+  \partial e_3 &= v-v = 0\\
+\end{align*}
+
+Then for $H_2(X)$ we have $\mathrm{Im}\partial_3=0$ and $\ker \partial_2 = 0$.
+Thus $H_2(X)\cong 0$.
+
+For $H_1$ we have $\mathrm{Im}\partial_2=\langle 2e+e_3\rangle$ and $\ker\partial_1=\langle e,e_3\rangle$.
+Then we have
+\[ H_1(X)\cong\langle e,e_3\rangle/\langle 2e+e_3\rangle\cong\langle e,e_3|2e=-e_3\rangle\cong\langle e\rangle\cong \bb{Z}\]
+
+Finally $H_0(X)=\bb{Z}$ as there is only a single connected component.
+
+Therefore the homology for $X$ is
+\[
+  H_p(X)=
+  \left\{
+    \begin{array}{ll}
+      \bb{Z} & p=0,1\\
+      0 & p\geq 2\\
+    \end{array}
+  \right.
+\]
+
+It's probably a M\"obius strip.
+
+\sk
+
+\begin{problem}[4]
+  Compute the simplicial homology groups of the triangular parachute
+  obtained from $\Delta^2$ by identifying its three vertices to a single point.
+\end{problem}
+
+Use the picture below to guide the boundary map for $X$.
+
+\textbf{Insert pretty picture here}
+
+The boundary map for our components will be:
+\begin{align*}
+  \partial f &= e_1+e_2+e_2\\
+  \partial e_1 &= v-v=0\\
+  \partial e_2 &= v-v=0\\
+  \partial e_3 &= v-v=0\\
+\end{align*}
+
+For $H_2(X)$ we have $\mathrm{Im}\partial_3=0$ and $\ker\partial_2=0$. Thus
+$H_2(X)\cong 0$.
+
+For $H_1(X)$ we have $\mathrm{Im}\partial_2=\langle e_1+e_2+e_3\rangle$ and $\ker\partial_1=\langle e_1,e_2,e_3\rangle$.
+Thus
+\[ H_1(X)=\langle e_1,e_2,e_3\rangle/\langle e_1+e_2+e_3\rangle\cong\langle e_1,e_2,e_3|e_1+e_2=-e_3\rangle\cong\langle e_1+e_2\rangle\cong\bb{Z}\oplus\bb{Z}\]
+
+Finally there is only a single connected component so $H_0(X)\cong\bb{Z}$.
+
+Therefore the homology for $X$ is
+
+\[
+  H_p(X)=
+  \left\{
+    \begin{array}{ll}
+      \bb{Z} & p=0\\
+      \bb{Z}\oplus\bb{Z} & p=1\\
+      0 & p\geq 2\\
+    \end{array}
+  \right.
+\]
+
+\sk
+
+\begin{problem}[6]
+  Compute the simplicial homology groups of the $\Delta$-complex obtained
+  from $n+1$ $2$-simplicies $\Delta^2_0, \cdots, \Delta^2_n$ by identifying
+  all three edges of $\Delta^2_0$ to a single edge, and for $i>0$ identifying
+  the edges $[v_0,v_1]$ and $[v_1,v_2]$ of $\Delta^2_i$ to a single edge and
+  the edge of $[v_0,v_2]$ to the edge $[v_0,v_1]$ of $\Delta^2_{i-1}$.
+\end{problem}
+
+\sk
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
