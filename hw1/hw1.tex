@@ -12,6 +12,7 @@
 \newcommand{\sk}{\vskip 10mm}
 \newcommand{\bb}[1]{\mathbb{#1}}
 \newcommand{\ra}{\rightarrow}
+\newcommand{\ima}{\mathrm{im}\ }
 
 \theoremstyle{plain}
 \newtheorem{problem}{Problem}
@@ -42,10 +43,10 @@ and $v$ respectively. Then:
   \partial e_3 &= v-v = 0\\
 \end{align*}
 
-Then for $H_2(X)$ we have $\mathrm{Im}\partial_3=0$ and $\ker \partial_2 = 0$.
+Then for $H_2(X)$ we have $\ima \partial_3=0$ and $\ker \partial_2 = 0$.
 Thus $H_2(X)\cong 0$.
 
-For $H_1$ we have $\mathrm{Im}\partial_2=\langle 2e+e_3\rangle$ and $\ker\partial_1=\langle e,e_3\rangle$.
+For $H_1$ we have $\ima \partial_2=\langle 2e+e_3\rangle$ and $\ker\partial_1=\langle e,e_3\rangle$.
 Then we have
 \[ H_1(X)\cong\langle e,e_3\rangle/\langle 2e+e_3\rangle\cong\langle e,e_3|2e=-e_3\rangle\cong\langle e\rangle\cong \bb{Z}\]
 
@@ -83,10 +84,10 @@ The boundary map for our components will be:
   \partial e_3 &= v-v=0\\
 \end{align*}
 
-For $H_2(X)$ we have $\mathrm{Im}\partial_3=0$ and $\ker\partial_2=0$. Thus
+For $H_2(X)$ we have $\ima \partial_3=0$ and $\ker\partial_2=0$. Thus
 $H_2(X)\cong 0$.
 
-For $H_1(X)$ we have $\mathrm{Im}\partial_2=\langle e_1+e_2+e_3\rangle$ and $\ker\partial_1=\langle e_1,e_2,e_3\rangle$.
+For $H_1(X)$ we have $\ima \partial_2=\langle e_1+e_2+e_3\rangle$ and $\ker\partial_1=\langle e_1,e_2,e_3\rangle$.
 Thus
 \[ H_1(X)=\langle e_1,e_2,e_3\rangle/\langle e_1+e_2+e_3\rangle\cong\langle e_1,e_2,e_3|e_1+e_2=-e_3\rangle\cong\langle e_1+e_2\rangle\cong\bb{Z}\oplus\bb{Z}\]
 
@@ -114,6 +115,28 @@ Therefore the homology for $X$ is
   the edges $[v_0,v_1]$ and $[v_1,v_2]$ of $\Delta^2_i$ to a single edge and
   the edge of $[v_0,v_2]$ to the edge $[v_0,v_1]$ of $\Delta^2_{i-1}$.
 \end{problem}
+
+We'll use the following diagram for the space $X$ to define the homology.
+
+\textbf{Insert a picture here}.
+
+The values for the boundary maps are
+\begin{align*}
+  \partial e_i &= v_0-v_0=0\\
+  \partial f_0 = 3e_0\\
+  \partial f_i = 2e_i+e_{i-1} & 1\leq i\leq n
+\end{align*}
+
+For $H_2(X)$ we have that $\ima \partial_3=0$. For $\ker \partial_2$ start with the matrix
+\[
+  \left(
+  \begin{array}{ccccc}
+    3&1&0&\cdots&0\\
+    0&2&1&\cdots&\vdots\\
+    \vdots&0& 
+  \end{array}
+  \right)
+\] 
 
 \sk
 
