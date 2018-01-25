@@ -6,6 +6,9 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{enumerate}
+\usepackage{graphicx}
+
+\graphicspath{{images/}}
 
 \textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
 
@@ -30,9 +33,14 @@
   $[v_1,v_2]$, preserving the ordering of vertices?
 \end{problem}
 
-Use the following drawing of $X$ as our guide for the boundary maps.
+If we take a look at the following identification for $X$\\
 
-\textbf{Insert pretty picture here}
+\begin{center}
+\includegraphics[scale=.7]{mobius}  
+\end{center}
+
+We can see that it is a M\"obius strip. As further evidence of
+we can compute the homology of the space.
 
 Since we are identifying edges $e_1$ and $e_2$ this also induces the
 identification of $v_1,v_2,$ and $v_3$. We'll call them $e$
@@ -63,7 +71,9 @@ Therefore the homology for $X$ is
   \right.
 \]
 
-It's probably a M\"obius strip.
+Since $H_2$ is trivial that implies that the surface $X$ is nonorientable.
+Moreover the first homology group is $\bb{Z}$ which matches the
+fundamental group of the M\"obius strip.
 
 \sk
 
@@ -72,9 +82,11 @@ It's probably a M\"obius strip.
   obtained from $\Delta^2$ by identifying its three vertices to a single point.
 \end{problem}
 
-Use the picture below to guide the boundary map for $X$.
+Use the picture below to guide the boundary map for $X$.\\
 
-\textbf{Insert pretty picture here}
+\begin{center}
+\includegraphics[scale=.5]{p4}  
+\end{center}
 
 The boundary map for our components will be:
 \begin{align*}
@@ -118,7 +130,9 @@ Therefore the homology for $X$ is
 
 We'll use the following diagram for the space $X$ to define the homology.
 
-\textbf{Insert a picture here}.
+\begin{center}
+  \includegraphics[scale=.7]{other}  
+\end{center}
 
 The values for the boundary maps are
 \begin{align*}
