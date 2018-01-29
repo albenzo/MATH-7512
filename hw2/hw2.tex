@@ -7,6 +7,7 @@
 \usepackage{listings}
 \usepackage{enumerate}
 \usepackage{graphicx}
+\usepackage[all,cmtip]{xy}
 
 \graphicspath{{images/}}
 
@@ -74,9 +75,41 @@
   
 \end{problem}
 
-\begin{proof}
-  
-\end{proof}
+For this problem we'll be implicitly assuming the structure theorem of finite
+generated abelian groups to eliminate choices.
+
+
+In order for the short exact sequence
+\[
+  \xymatrix{0 \ar[r] & \bb{Z}_4 \ar[r] & \bb{Z}_8\oplus \bb{Z}_2\ar[r] &\bb{Z}_4 \ar[r] & 0}
+\]
+to exist we need for $\bb{Z}_4$ to be expressible as a quotient of
+$\bb{Z}_8\oplus \bb{Z}_2$ and $\bb{Z}_4$. However this cannot occur as there is only
+a single component to $\bb{Z}_4$ the homomorphism needs to be sent to either
+the $\bb{Z}_8$ or the $\bb{Z}_2$. If it is sent to the $\bb{Z}_8$ we can get it
+down to $\bb{Z}_2$ but $\bb{Z}_2\oplus\bb{Z}_2\ncong \bb{Z}_4$. Similarly if
+$\bb{Z}_4$ is sent to $\bb{Z}_2$ we can eliminate that component but
+$\bb{Z}_8\ncong \bb{Z}_4$. Therefore the above short exact sequence cannot
+exist.
+
+For the short exact sequence
+\[
+  \xymatrix{0 \ar[r] & \bb{Z}_{p^m} \ar[r] & A \ar[r] & \bb{Z}_{p^n}\ar[r] & 0}
+\]
+to exist we need for $\bb{Z}_{p^n}\cong A/\bb{Z}_{p^m}$. Since $p$ is prime the
+only possibilities for this are $A\cong \bb{Z}_{p^m}\oplus\bb{Z}_{p^n}$ and sending
+$\bb{Z}_{p^m}$ to itself or $\bb{Z}_{p^{m+n}}$ and quotienting out the $\bb{Z}_{p^m}$.
+
+
+Finally for the short exact sequence
+\[
+  \xymatrix{0 \ar[r] & \bb{Z} \ar[r] & B \ar[r] & \bb{Z}_n\ar[r] & 0}
+\]
+
+to exist, as above, we need $\bb{Z}_n\cong B/\bb{Z}$. Since the first map
+must be injective due to its position we need to send $\bb{Z}$ into
+some copy of $\bb{Z}$. Thus the possibilities are $B\cong \bb{Z}\oplus\bb{Z}_n$
+quotienting out the $\bb{Z}$ or $B\cong\bb{Z}$ and sending $\bb{Z}$ to $n\bb{Z}$.
 
 \sk
 
