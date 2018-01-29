@@ -1,0 +1,84 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\graphicspath{{images/}}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\ima}{\mathrm{im}\ }
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+\begin{problem}[11]
+  
+\end{problem}
+
+\begin{proof}
+  Let $A$ be a retract of $X$. Then there is a map such that
+  $r:X\rightarrow A$ which when composed with inclusion we have
+  $r\circ i= id_A$. However when we look at the induced maps on
+  homology we see that $r_*\circ i_*=id_{A*}$. As such $i_*$ has
+  a left inverse and it then follows that $i_*$ is injective.
+\end{proof}
+
+\sk
+
+\begin{problem}[12]
+  Show that chain homotopy of chain maps is an equivalence relation.
+\end{problem}
+
+\begin{proof}
+  Let $f_\#\sim g_\#$ denote that $f_\#,g_\#$ are chain homotopic. Now we verify
+  that chain homotopy is an equivalence relation.
+
+  \begin{itemize}
+  \item
+    Let $P$ be the trivial map. Then $\partial P + P\partial=0=f_\#-f_\#$. Thus
+    $\sim$ is reflexive.
+  \item
+    Suppose that $f_\#\sim g_\#$ with prism $P$. Then for $-P$ we
+    have that
+    \[(\partial -P)+(-P)\partial = -(\partial P+P\partial)=-(f_\#-g_\#)=g_\#-f_\#\]
+    Thus $\sim$ is reflexive.
+  \item
+    Finally let $f_\#\sim g_\#$ and $g_\#\sim h_\#$ with prism $P$ and $Q$ respectively.
+    Then
+    \[ \partial(P+Q) +(P+Q)\partial = \partial P + P\partial+\partial Q + Q\partial=f_\#-g_\#+g_\#-h_\#=f_\#-h_\# \]
+    Thus $\sim$ is transitive.
+  \end{itemize}
+
+  Therefore, since it is reflexive, symmetric, and transitive it is an equivalence relation.
+\end{proof}
+
+\sk
+
+\begin{problem}[14]
+  
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\end{document}
