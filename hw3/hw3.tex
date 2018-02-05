@@ -6,12 +6,14 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
 
 \textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
 
 \newcommand{\sk}{\vskip 10mm}
 \newcommand{\bb}[1]{\mathbb{#1}}
 \newcommand{\ra}{\rightarrow}
+\newcommand{\ima}{\mathrm{im}\ }
 
 \theoremstyle{plain}
 \newtheorem{problem}{Problem}
@@ -24,31 +26,61 @@
 \begin{document}
 
 \begin{problem}[15]
-  
+  For an exact sequence $A\rightarrow B\rightarrow C\rightarrow D\rightarrow E$ show that $C=0$ iff
+  the map $A\rightarrow B$ is surjective and $D\rightarrow E$ is injective. Hence
+  for a pair of spaces $(X,A)$, the inclusion induces isomorphisms
+  on all homology groups iff $H_n(X,A)=0$ for all $n$.
 \end{problem}
 
 \begin{proof}
+  Label the maps of the exact sequence as:
+  \[
+    \xymatrix{A \ar[r]^\alpha & B \ar[r]^\beta & C \ar[r]^\gamma & D \ar[r]^\delta & E}
+  \]
   
+  Suppose that $C=0$. Then $\ker \beta= B$ which by exactness gives
+  $\ima \alpha= B$ implying that $\alpha$ is surjective. On the other hand
+  $\ima \gamma=0$ which by exactness gives $\ker \delta=0$ and as such
+  $\delta$ is injective.
+
+  Now suppose that $\alpha$ is surjective and that $\delta$ is injective. Then
+  $\ima \alpha = B$ which implies that $\ker \beta=B$. In addition, since
+  $\ker\delta=0$ by exactness we have that $\ima \gamma=0$. However since
+  the image of $\beta$ is $0$ by exactness $\ker \gamma=0$. Since the
+  kernel of $\gamma$ is 0 and the image is 0 it must be that the group
+  $C$ is zero.
+
+  Therefore $C=0$ if, and only if, $\alpha$ is surjective and $\delta$ is
+  injective.
 \end{proof}
 
 \sk
 
 \begin{problem}[16]
-  
+  \begin{enumerate}
+  \item[(a)] Show that $H_0(X,A)=0$ iff $A$ meets each path-component
+    of $X$.
+  \item[(b)] Show that $H_1(X,A)=0$ iff $H_1(A)\rightarrow H_1(X)$ is surjective and
+    each path component contains at most one path-component of $A$.
+  \end{enumerate}
 \end{problem}
 
-\begin{proof}
-  
+\begin{proof}\ \\
+  \begin{enumerate}
+  \item[(a)] 
+  \item[(b)]
+  \end{enumerate}
 \end{proof}
 
 \sk
 
 \begin{problem}[18]
-  
+  Show that for the subspace $\bb{Q}\subset\bb{R}$, the relative homology group
+  $H_1(\bb{R},\bb{Q})$ is free abelian and find a basis.
 \end{problem}
 
 \begin{proof}
-  
+
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
