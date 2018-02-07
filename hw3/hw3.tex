@@ -67,8 +67,42 @@
 
 \begin{proof}\ \\
   \begin{enumerate}
-  \item[(a)] 
-  \item[(b)]
+  \item[(a)] Note that $H_0(X,A)=C_0(X,A)/\ima\partial_1$. It then follows that
+    $H_0(X,A)=0$ only when $C_0(X,A)=0$ or $\ima\partial_1=C_0(X,A)$. If $C_0(X,A)=0$
+    then $A=X$ and the problem follows immediately. Otherwise it must
+    be that $C_0(X,A)\neq 0$.
+
+    Now suppose that $A$ meets each path component of $X$. Then each
+    point $x\in X$ will have a path connecting it to $A$ which implies that
+    $x\in\ima \partial_1$. Since this holds for any point we have that $\ima\partial_1=C_0(X,A)$
+    and as such $H_0(X,A)=0$.
+
+    Otherwise if $H_0(X,A)=0$ then $\ima\partial_1=C_0(X,A)$ meaning that any
+    point $x\in X$ has a one-simplex that ends at $x$ and inside of $A$.
+    This creates a path from $x$ to $A$ which implies that $A$ must
+    contact each path component of $X$.
+  \item[(b)] From Hatcher we have the long exact sequence
+    \[
+      \xymatrix{\cdots\ar[r]&H_1(A)\ar[r]^{i_*} & H_1(X) \ar[r]^{j_*} & H_1(X,A) \ar[r]^{\partial_*} &
+        H_0(A) \ar[r]^{i_*} & H_0(X) \ar[r]^{j_*} & H_0(X,A) \ar[r] & 0}
+    \]
+
+    First suppose that $i_*:H_1(A)\rightarrow H_1(X)$ is surjective. Then by exactness
+    $\ker j_*=H_1(X)$ and it then follows that $\ima j_*=0$ which means
+    that $\ker\partial_*=0$. This implies that $\partial_*$ is injective. If the kernel
+    of $i_*:H_0(A)\rightarrow H_0(X)$ is trivial this will imply that $H_1(X,A)=0$ as
+    $\ima \partial=0$. However since $A$ touches each path component of $X$ at
+    most once the induced map $i_{*1}$ will be injective which gives it a
+    trivial kernel. Thus if $i_*:H_1(A)\rightarrow H_1(X)$ is surjective and $A$ meets
+    each path component of $X$ at most once we have that $H_1(X,A)=0$.
+
+    Otherwise suppose that $H_1(X,A)=0$. Then by exactness we have
+    that $i_{*1}$ is injective and as such $A$ will meet each
+    path component of $X$ at most once. Also $\ker j_*=H_1(X)$ this
+    implies that $\ima i_{*2}=H_1(X)$ making it surjective.
+
+    Therefore $H_1(X,A)=0$ iff $H_1(A)\rightarrow H_1(X)$ is surjective and each path
+    component contains at most one path-component of $A$.
   \end{enumerate}
 \end{proof}
 
@@ -80,7 +114,41 @@
 \end{problem}
 
 \begin{proof}
+  From Hatcher we have the long exact sequence
+  \[
+    \xymatrix{\cdots \ar[r] & H_1(\bb{R})\ar[r] & H_1(\bb{R},\bb{Q})\ar[r]^{\partial_*}
+      & H_0(\bb{Q})\ar[r]^{i_*} & H_0(\bb{R}) \ar[r] & H_)(\bb{R},\bb{Q}) \ar[r] & 0 }
+  \]
 
+  We know the homology of $\bb{R}$ since it is contractible and we know that
+  $H_0(\bb{R},\bb{Q})$ is trivial by the previous problem. Moreover since
+  $\bb{Q}$ is completely disconnected its zeroth homology will be a copy
+  of $\bb{Z}$ for each rational number. This gives us the short exact sequence:
+  \[
+    \xymatrix{0 \ar[r] & H_1(\bb{R},\bb{Q})\ar[r]^{\partial_*}&\bigoplus_{q\in\bb{Q}}\bb{Z}\ar[r]^-{i_*}
+      &\bb{Z}\ar[r] & 0 }
+  \]
+
+  We can write elements of $\bigoplus_{q\in\bb{Q}}\bb{Z}$ as formal sums of rational
+  numbers with integer coefficients ($\sum_{q\in\bb{Q}}a_qq$). Then the
+  map induced by the inclusion would be
+  \[
+    i_*\left(\sum a_qq\right) = \sum a_q
+  \]
+
+  The kernel of this map is $\{\sum a_qq | \sum a_q=0\}\cong \ima \partial_*$. However since
+  $\partial_*$ is injective by the first isomorphism theorem we have that
+  \[
+    H_1(\bb{R},\bb{Q})\cong \{\sum a_qq|\sum a_q=0\}
+  \]
+
+  This group is a subgroup of a free abelian group which implies that it is
+  also free abelian. We can write a basis as
+  \footnote{Almost did this with $-1\cdot 0+1\cdot q$ but I disliked the notation} 
+  \[
+    \langle -1\cdot p+1\cdot q| q\in\bb{Q}\setminus\{p\}\rangle
+  \]
+  
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
