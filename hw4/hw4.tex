@@ -6,12 +6,14 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
 
 \textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
 
 \newcommand{\sk}{\vskip 10mm}
 \newcommand{\bb}[1]{\mathbb{#1}}
 \newcommand{\ra}{\rightarrow}
+\newcommand{\wt}[1]{\widetilde{#1}}
 
 \theoremstyle{plain}
 \newtheorem{problem}{Problem}
@@ -37,8 +39,53 @@
   \end{enumerate}
 \end{problem}
 
+\[
+  \cdots \rightarrow \wt{H}_k(X^{n-1})\rightarrow \wt{H}_k(X^n) \rightarrow \wt{H}_k(X^n/X^{n-1}) \rightarrow \wt{H}_{k-1}(X^{n-1}) \rightarrow \wt{H}_{k-1}(X^n) \rightarrow \wt{H}_{k-1}(X^n/X^{n-1}) \rightarrow \cdots
+\]
+
 \begin{proof}
-  
+  \begin{enumerate}
+  \item[(a)]
+    Suppose that $X$ has dimension zero. Then $X$ is the disjoint union of points and as such
+    from Hatcher we have that $\wt{H}_0(X)\cong \bigoplus_{x\in X\setminus x_0}\bb{Z}$ and $\wt{H}_k(X)=0$ for $k>0$ where
+    $x_0$ is just some point.
+
+    Now assume that when a finite-dimensional CW complex $X$ has dimension $j<n$
+    that $H_j(X)$ is free and $H_i(X)=0$ for $i>n$. Let $X$ be an $n+1$ dimensional
+    CW complex. From Hatcher we have the long exact sequence
+    \[
+      \cdots \rightarrow \wt{H}_k(X^{n-1})\rightarrow \wt{H}_k(X^n) \rightarrow \wt{H}_k(X^n/X^{n-1}) \rightarrow \wt{H}_{k-1}(X^{n-1}) \rightarrow \wt{H}_{k-1}(X^n) \rightarrow \wt{H}_{k-1}(X^n/X^{n-1}) \rightarrow \cdots
+    \]
+    If $k>n$ by induction we have
+    \[
+      0 \rightarrow \wt{H}_k(X^n) \rightarrow 0
+    \]
+    which forces $\wt{H}_k(X^n)=0$. Otherwise if $k=n$ we have
+    \[
+      0 \rightarrow \wt{H}_n(X^n) \rightarrow \bigoplus_{\sigma\mathrm{\ an\ n-simplex}}\bb{Z} \rightarrow \cdots
+    \]
+    Since the sequence is exact we have that $\wt{H}_n(X^n)$ is isomorphic to a
+    subgroup of a free abelian group and as such is free abelian.
+
+    Therefore by induction if $X$ has dimension $n$ then $H_i(X)=0$ for $i>n$ and
+    $H_n(X)$ is free.
+  \item[(b)] Let $n=0$. From Hatcher we have that $H_0(X)$ is free abelian
+    with a generator for each 0-cell.
+
+    Now assume that for dimension $j<n$ if there are no $j-1$ or $j+1$ simplices
+    that $H_j(X)$ is free with basis in bijective correspondence with the $j$-cells.
+    Then let $X$ be a finite-dimensional CW complex with no $n$-simplices. Then
+    via the same exact sequence from above we get
+    \[
+      \wt{H}_n(X^{n-1})\cong 0\rightarrow\wt{H}_n(X^n)\rightarrow\wt{H}_n(X^n/X^{n-1})\rightarrow\wt{H}_{n-1}(X^{n-1}\cong 0)
+    \]
+    Which induces an isomorphism between the remaining groups. Since
+    $\wt{H}_n(X^n/X^{n-1})$ has a generator for each $n$ simplex it follows
+    that $\wt{H}_n(X^n)$ does as well.
+
+    Next suppose that there are no $n+1$ simplices.
+  \item[(c)]
+  \end{enumerate}
 \end{proof}
 
 \sk
@@ -50,13 +97,27 @@
 \end{problem}
 
 \begin{proof}
-  
+  We can see that $H_1(X,A)\cong\bigoplus_1^\infty\bb{Z}$ from the short exact sequence
+  \[
+    \xymatrix{
+      0\ar[r] & H_1(X,A) \ar[r] & H_0(A)\cong \bigoplus_0^\infty\bb{Z} \ar[r] & H_0(X)\cong \bb{Z} \ar[r] & 0
+    }
+  \]
+  as this short exact sequence enforces that $H_1(X,A)\oplus \bb{Z}\cong \bigoplus_0^\infty\bb{Z}$. Thus
+  $H_1(X,A)$ has a countable number elements.
+
+  However if we examine the space $X/A$ we can see that it is homeomorphic to the
+  Hawaiian earring. Moreover there are a countable number of one simplices and
+  a single zero simplex. Thus $\widetilde{H}_1(X/A)$ is not finitely generated
+  and as such by Hatcher (49) we have that $\widetilde{H}_1(X/A)$ is uncountable.
+
+  Therefore $H_1(X,A)$ and $\widetilde{H}_1(X/A)$ are not isomorphic.
 \end{proof}
 
 \sk
 
 \begin{problem}[27]
-  Let $f:(X,A)(Y,B)$ be a map that both $f:X\rightarrow Y$ and the restriction
+  Let $f:(X,A)\rightarrow(Y,B)$ be a map that both $f:X\rightarrow Y$ and the restriction
   $f:A\rightarrow B$ are homotopy equivalences.
   \begin{enumerate}
   \item[(a)] Show that $f_*:H_n(X,A)\rightarrow H_n(Y,B)$ is an
@@ -72,7 +133,35 @@
 \end{problem}
 
 \begin{proof}
-  
+  \begin{enumerate}
+  \item[(a)] From Hatcher we have the long exact sequences with morphisms
+    between them like so:
+    \[
+      \xymatrix{
+        \cdots \ar[r] & H_n(A) \ar[r] \ar[d]^{f_*} & H_n(X) \ar[r] \ar[d]^{f_*} & H_n(X,A) \ar[r] \ar[d]^{f_*} & H_{n-1}(A) \ar[r] \ar[d]^{f_*} & H_{n-1}(X) \ar[r] \ar[d]^{f_*} & \cdots \\
+        \cdots \ar[r] & H_n(B) \ar[r] & H_n(Y) \ar[r] & H_n(Y,B) \ar[r] & H_{n-1}(B) \ar[r] & H_{n-1}(Y) \ar[r] & \cdots
+      }
+    \]
+
+    Since $f$ is a homotopy equivalence for $A$ and $X$ the left 2 and the right 2 $f_*$s
+    are isomorphisms. Thus by the five lemma the center map $f_*$ is an
+    isomorphism.
+  \item[(b)] Suppose otherwise. Then we have a map $g:(D^n,D^n\setminus\{0\})\rightarrow(D^n,S^{n-1})$
+    such that $g$ is a homotopy equivalence. Then since $g:D^n\setminus\{0\}\rightarrow S^{n-1}$
+    is continuous it will force $g:D^n\rightarrow S^{n-1}$ to send $0$ to $S^{n-1}$ as
+    well as it is continuous. Since $g$ extends is then a map from $D^n$ that
+    extends to a disc it is null and therefore the zero map on homology.
+
+    However for $k=n-1$ we have a map
+    \[
+      H_{n-1}(D^n\setminus\{0\})\cong \bb{Z}\rightarrow H_n(S^{n-1}) \cong Z
+    \]
+    which is both the zero map and an isomorphism since it is a homotopy
+    equivalence. This is a contradiction.
+
+    Therefore there the inclusion map is not a homotopy equivalence of
+    pairs for $(D^n,S^{n-1})$ and $(D^n,D^n\setminus\{0\})$.
+  \end{enumerate}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
