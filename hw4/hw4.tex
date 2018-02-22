@@ -46,29 +46,34 @@
 \begin{proof}
   \begin{enumerate}
   \item[(a)]
-    Suppose that $X$ has dimension zero. Then $X$ is the disjoint union of points and as such
-    from Hatcher we have that $\wt{H}_0(X)\cong \bigoplus_{x\in X\setminus x_0}\bb{Z}$ and $\wt{H}_k(X)=0$ for $k>0$ where
-    $x_0$ is just some point.
+    Suppose that $X$ has dimension zero. Then $X$ consists of only $0$-cells
+    and as such $C_i(X)=0$ for $i>0$ implying that $H_i(X)=0$ for $i>0$. From
+    Hatcher we have that $H_0(X)=\bigoplus_{x\in X}\bb{Z}$.
 
-    Now assume that when a finite-dimensional CW complex $X$ has dimension $j<n$
-    that $H_j(X)$ is free and $H_i(X)=0$ for $i>n$. Let $X$ be an $n+1$ dimensional
-    CW complex. From Hatcher we have the long exact sequence
+    Now assume that for $Y$ with dimension $j<n$ that $H_i(Y)=0$ for $i>j$ and
+    that $H_j(Y)$ is free. Suppose that $X$ has dimension $n$. Then from Hatcher
+    we have the long exact sequence
     \[
       \cdots \rightarrow \wt{H}_k(X^{n-1})\rightarrow \wt{H}_k(X^n) \rightarrow \wt{H}_k(X^n/X^{n-1}) \rightarrow \wt{H}_{k-1}(X^{n-1}) \rightarrow \wt{H}_{k-1}(X^n) \rightarrow \wt{H}_{k-1}(X^n/X^{n-1}) \rightarrow \cdots
     \]
-    If $k>n$ by induction we have
-    \[
-      0 \rightarrow \wt{H}_k(X^n) \rightarrow 0
-    \]
-    which forces $\wt{H}_k(X^n)=0$. Otherwise if $k=n$ we have
-    \[
-      0 \rightarrow \wt{H}_n(X^n) \rightarrow \bigoplus_{\sigma\mathrm{\ an\ n-simplex}}\bb{Z} \rightarrow \cdots
-    \]
-    Since the sequence is exact we have that $\wt{H}_n(X^n)$ is isomorphic to a
-    subgroup of a free abelian group and as such is free abelian.
 
-    Therefore by induction if $X$ has dimension $n$ then $H_i(X)=0$ for $i>n$ and
-    $H_n(X)$ is free.
+    If $k>n$ then this gives us the exact sequence
+    \[
+      0\rightarrow \wt{H}_k(X^n)\rightarrow 0
+    \]
+    as $\wt{H}_k(X^{n-1})$ will be zero by induction and $\wt{H}_k(X^n/x^{n-1})$ will
+    be zero since $n$-spheres only have nonzero reduced homology in dimension $n$.
+
+    Otherwise if $k=n$ we get the exact sequence
+    \[
+      0\rightarrow \wt{H}_n(X^n)\rightarrow \bigoplus_{n\text{ simplices}}\bb{Z}\rightarrow\cdots
+    \]
+    The fact that $\wt{H}_n(X^{n-1})$ is zero by induction forces the above map
+    to be injective. It then follows that $\wt{H}_n(X^n)$ is isomorphic to the
+    subgroup of a free abelian group and as such is free as well. Since reduced
+    homology is identical to homology when the dimension is greater than zero
+    this completes the proof.
+    
   \item[(b)] Let $n=0$. From Hatcher we have that $H_0(X)$ is free abelian
     with a generator for each 0-cell.
 
