@@ -46,6 +46,8 @@
 \begin{proof}
   \begin{enumerate}
   \item[(a)]
+    Note that $H_n(X)\cong H_n(X^n)$ since there are no simplices of higher dimension.
+    
     Suppose that $X$ has dimension zero. Then $X$ consists of only $0$-cells
     and as such $C_i(X)=0$ for $i>0$ implying that $H_i(X)=0$ for $i>0$. From
     Hatcher we have that $H_0(X)=\bigoplus_{x\in X}\bb{Z}$.
@@ -70,9 +72,10 @@
     \]
     The fact that $\wt{H}_n(X^{n-1})$ is zero by induction forces the above map
     to be injective. It then follows that $\wt{H}_n(X^n)$ is isomorphic to the
-    subgroup of a free abelian group and as such is free as well. Since reduced
-    homology is identical to homology when the dimension is greater than zero
-    this completes the proof.
+    subgroup of a free abelian group and as such is free as well. Moreover the
+    number of generators is has rank equal to one fewer than the number of $n$-simplices
+    (this will be used in (c)). Since reduced homology is identical to homology
+    when the dimension is greater than zero this completes the proof. 
     
   \item[(b)]
     Let $n=0$. From Hatcher we have that $H_0(X)$ is free abelian
@@ -106,7 +109,7 @@
 \sk
 
 \begin{problem}[26]
-  Show that $H_1(X,A)$ is not isomorphic to $\widetilde{H}_1(X/A)$ if
+  Show that $H_1(X,A)$ is not isomorphic to $\wt{H}_1(X/A)$ if
   $X=[0,1]$ and $A$ is the sequence $1,\frac{1}{2},\frac{1}{3},\ldots$
   together with its limit $0$. [See Example 1.25.]
 \end{problem}
@@ -123,10 +126,10 @@
 
   However if we examine the space $X/A$ we can see that it is homeomorphic to the
   Hawaiian earring. Moreover there are a countable number of one simplices and
-  a single zero simplex. Thus $\widetilde{H}_1(X/A)$ is not finitely generated
-  and as such by Hatcher (49) we have that $\widetilde{H}_1(X/A)$ is uncountable.
+  a single zero simplex. Thus $\wt{H}_1(X/A)$ is not finitely generated
+  and as such by Hatcher (49) we have that $\wt{H}_1(X/A)$ is uncountable.
 
-  Therefore $H_1(X,A)$ and $\widetilde{H}_1(X/A)$ are not isomorphic.
+  Therefore $H_1(X,A)$ and $\wt{H}_1(X/A)$ are not isomorphic.
 \end{proof}
 
 \sk
@@ -164,8 +167,10 @@
   \item[(b)] Suppose otherwise. Then we have a map $g:(D^n,D^n\setminus\{0\})\rightarrow(D^n,S^{n-1})$
     such that $g$ is a homotopy equivalence. Then since $g:D^n\setminus\{0\}\rightarrow S^{n-1}$
     is continuous it will force $g:D^n\rightarrow S^{n-1}$ to send $0$ to $S^{n-1}$ as
-    well as it is continuous. Since $g$ extends is then a map from $D^n$ that
-    extends to a disc it is null and therefore the zero map on homology.
+    well as it is continuous and therefore must preserve the limit
+    of a sequence $\{x_n\neq 0\}_1^\infty$ that converges to $0$. Since $g$ is then a map
+    from $D^n$ to $S^{n-1}$ it must be null and therefore the induced map
+    is the zero map.
 
     However for $k=n-1$ we have a map
     \[
