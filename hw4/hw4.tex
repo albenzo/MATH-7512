@@ -74,22 +74,32 @@
     homology is identical to homology when the dimension is greater than zero
     this completes the proof.
     
-  \item[(b)] Let $n=0$. From Hatcher we have that $H_0(X)$ is free abelian
+  \item[(b)]
+    Let $n=0$. From Hatcher we have that $H_0(X)$ is free abelian
     with a generator for each 0-cell.
 
     Now assume that for dimension $j<n$ if there are no $j-1$ or $j+1$ simplices
     that $H_j(X)$ is free with basis in bijective correspondence with the $j$-cells.
-    Then let $X$ be a finite-dimensional CW complex with no $n$-simplices. Then
-    via the same exact sequence from above we get
+    Then let $X$ be a $CW$ complex with no $n+1$ or $n-1$ simplices. Note that this
+    implies that $X^{n+1}=X^n$ and  that $X^{n-1}=X^{n-2}$ From the
+    same long exact sequence as above we have:
     \[
-      \wt{H}_n(X^{n-1})\cong 0\rightarrow\wt{H}_n(X^n)\rightarrow\wt{H}_n(X^n/X^{n-1})\rightarrow\wt{H}_{n-1}(X^{n-1}\cong 0)
+      \wt{H}_n(X^{n-2})\cong 0\rightarrow \wt{H}_n(X^n)\rightarrow\wt{H}_n(X^n/X^{n-1})\cong\bigoplus_{n\text{ simplices}}\bb{Z} \rightarrow H_{n-1}(X^{n-2})\cong 0
     \]
-    Which induces an isomorphism between the remaining groups. Since
-    $\wt{H}_n(X^n/X^{n-1})$ has a generator for each $n$ simplex it follows
-    that $\wt{H}_n(X^n)$ does as well.
+    This an isomorphism between $\wt{H}_n(X)$ and $\bigoplus_{n\text{ simplices}}\bb{Z}$ and since
+    $n>0$ reduced homology is equivalent to homology.
 
-    Next suppose that there are no $n+1$ simplices.
+    Therefore if $H_n(X)$ is free with basis in bijective correspondence
+    with the $n$-cells if there are no cells of dimension $n-1$ or $n+1$.
   \item[(c)]
+    Consider the same long exact sequence as above. Then we have
+    \[
+      \cdots \rightarrow \wt{H}_n(X^n)\rightarrow\wt{H}_n(X^{n+1})\rightarrow\wt{H}_n(X^{n+1}/X^n)\cong 0
+    \]
+    which makes the map from $\wt{H}_n(X^n)$ to $\wt{H}_n(X^{n+1})\cong H_n(X)$
+    surjective. From $(a)$ we have that $H_n(X^n)$ is free on at most
+    $k$ generators and as such $H_n(X)$ must also have at most $k$
+    generators.
   \end{enumerate}
 \end{proof}
 
