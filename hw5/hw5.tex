@@ -6,6 +6,7 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
 
 \textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
 
@@ -65,7 +66,33 @@
   has no fixed point and as such has degree $(-1)^{2n+1}=-1$.
   However due to how degree multiplies under composition we also
   have that $-\deg f=\deg -f$ which is a contradiction.
+
+  \sk
+
+  For the second portion suppose that we have a map
+  $g:\bb{R}P^{2n}\rightarrow\bb{R}^{2n}$ and consider its lift
+  $\widetilde{g}:S^{2n}\rightarrow S^{2n}$. Then we have the commutative
+  diagram
+  \[
+    \xymatrix{
+      S^{2n} \ar[r]^{\widetilde{g}} & S^{2n} \ar[d]^q\\
+      \bb{R}P^{2n} \ar[u]^i \ar[r]^g & \bb{R}P^{2n}
+    }
+  \]
+  where $i$ is inclusion and $q$ is a quotient map that agrees
+  with the inclusion. Since $\widetilde{g}$ must respect
+  equivalence classes we have that $\widetilde{g}(x)=\widetilde{g}(-x)$.
+  Moreover from the previous part we have that there is an
+  $x\in S^{2n}$ such that $\widetilde{g}(x)=\widetilde{g}(-x)$ is either
+  $x$ or $-x$. In either case there is a corresponding element
+  $\bar{x}\in\bb{R}P^{2n}$ such that $i(\bar{x})$ is $\pm x$ and $q(\pm x)=\bar{x}$.
+  By commutativity this implies that $g(\bar{x})=\bar{x}$ which shows
+  that $g$ indeed has a fixed point.  
 \end{proof}
+
+An example of a map from $\bb{R}^{2n-1}$ to $\bb{R}P^{2n-1}$ is
+
+\textbf{Don't forget to fill this in\ldots}
 
 \sk
 
@@ -79,7 +106,21 @@
 \end{problem}
 
 \begin{proof}
-  
+  Suppose that $f$ had no fixed point. Then its degree would have to be
+  $(-1)^{n+1}$ which is a contradiction. If $-f$ had no fixed point then
+  $\deg -f=(-1)^{n+1}$ which is also a contradiction. Therefore if $f$
+  has degree zero it must have a fixed point and so does $-f$.
+
+  Let $F:D^n\rightarrow\bb{R}^n$ be a nonzero vector field on $D^n$. Then define
+  $\bar{F}:D^n\rightarrow S^{n-1}$ by normalizing
+  \[
+    \bar{F}(x)=\frac{F(x)}{|F(x)|}
+  \]
+  Then the restriction of $\bar{F}$ to $\partial D^n$ is a map from $S^{n-1}$
+  to $S^{n-1}$ that has degree zero since it extends to a disc. Thus
+  there exist points $x,y\in \partial D^n$ such that $\bar{F}(x)=x$ and $\bar{F}(y)=-y$
+  corresponding to a vector $F(x)$ and $F(y)$ pointing radially inward and
+  radially outward on the boundary of $D^n$ respectively.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
