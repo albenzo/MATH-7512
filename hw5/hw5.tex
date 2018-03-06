@@ -31,7 +31,21 @@
 \end{problem}
 
 \begin{proof}
-  
+  Suppose that we have a map $f:D^n\rightarrow D^n$ with no fixed points.
+  Then define a map $g:S^n\rightarrow S^n$ by identifying the northern
+  hemisphere as the destination of $f$ via
+  \[
+    g(x) =
+    \left\{
+      \begin{array}{ll}
+        f(x) & x\in \text{northern hemisphere}\\
+        f(-x) & \text{otherwise}               
+      \end{array}
+    \right.
+  \]
+  Then $g$ has degree 0 since it is not surjective and $g$
+  has degree $(-1)^{n+1}$ since it has no fixed point from Hatcher pg. 134.
+  This is a contradiction.
 \end{proof}
 
 \sk
@@ -46,7 +60,11 @@
 \end{problem}
 
 \begin{proof}
-  
+  Suppose otherwise. Then $f$ has no fixed point and as such
+  has degree $(-1)^{2n+1}=-1$. Moreover the map $-f=f\circ A$ also
+  has no fixed point and as such has degree $(-1)^{2n+1}=-1$.
+  However due to how degree multiplies under composition we also
+  have that $-\deg f=\deg -f$ which is a contradiction.
 \end{proof}
 
 \sk
