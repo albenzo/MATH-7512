@@ -6,6 +6,7 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
 
 \textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
 
@@ -51,7 +52,32 @@
 \end{problem}
 
 \begin{proof}
+    Let $f$ be a map from $S^n$ to $S^n$ such that $f(x)=f(-x)$ for all $x\in S^n$.
+  Since $\bb{R}P^n$ is a quotient space of $S^n$ where antipodal points are
+  identified any even map from $S^n$ respects equivalence classes for the
+  quotient space and as such it factors as
+  \[
+    \xymatrix{
+      S^n \ar[d]^q \ar[r]^f & S^n\\
+      \bb{R}P^n \ar[ru]_{\widetilde{f}}
+    }
+  \]
+
+  First note that $\deg q =2$. This is because
+  for any point $x\in\bb{R}P^n$ it will have two points mapping to it from $S^n$ and
+  it will be the identity map giving us local degrees of 1 which add up to 2. Since
+  any even map will factor in this way any even map must have even degree.
   
+  When $n$ is even $H_n(\bb{R}P^n)\cong\bb{Z}$ and when $n$ is even $H_n(\bb{R}P^n)\cong 0$.
+  If $n$ is odd and $f$ is even then $\deg f = \deg q\cdot\deg \widetilde{f}$. However
+  since $H_n(\bb{R}P^n)\cong 0$ when $n$ is even then the degree of $f$ has to be zero
+  as $\deg \widetilde{f}=0$ since it is mapping out of the trivial group.
+
+  Now suppose that $n$ is odd. There is a quotient map
+  $r:\bb{R}P^n\rightarrow (\bb{R}P^n/\bb{R}P^{n-1}\equiv S^n)$. This map will have degree $1$ and
+  as such $q\circ r$ will be a map from $S^n\rightarrow S^n$ of degree two. From there if we
+  take a map of degree $k$, $f_k:S^n\rightarrow S^n$ (Hatcher $2.32$). Then $f_k\circ q\circ r$ will be
+  an even map of degree $2k$.
 \end{proof}
 
 \sk
@@ -62,7 +88,17 @@
 \end{problem}
 
 \begin{proof}
-  
+  Let $x_n$ and $y_n$ denote the $n$-dimensional simplices of $X$ and $Y$
+  respectively. Then
+  \[
+    \chi(X)\chi(Y)=\left(\sum_{n=0}^\infty(-1)^ix_i\right)\left(\sum_{m=0}^\infty(-1)^n\right)=\sum_{0=i=m+n}^\infty(-1)^{i}\left(\sum_{j=0}^ix_jy_{i-j}\right)
+  \]
+
+  However since the number of $i$-simplices in $X\times Y$ is $\sum_{j=0}^ix_jy_{i-j}$
+  this demonstrates that
+  \[
+    \chi(X)\chi(Y)=\chi(X\times Y)
+  \]
 \end{proof}
 
 \sk
