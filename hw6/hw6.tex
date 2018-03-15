@@ -32,7 +32,34 @@
 \end{problem}
 
 \begin{proof}
+  Consider the long exact sequence in reduced homology
+  \[
+    \xymatrix{
+      \cdots \ar[r] & \widetilde{H}_2(S^1\vee S^1) \ar[r] & \widetilde{H}_2(T^2) \ar[r] & \widetilde{H}_2(S^2) \ar[r] & \widetilde{H}_1(S^1\vee S^1) \ar[r] & \widetilde{H}_1(T^2) \ar[r] & \cdots
+    }
+  \]
+
+  First note that $H_2(S^1\vee S^1)= 0$ since there are no two cells which forces
+  the map induced by the quotient to be injective.
+  In addition the map from $\widetilde{H}_1(S^1\vee S^1)$ to $\widetilde{H}_1(T^2)$
+  is an isomorphism. Thus the kernel of the boundary map is zero making
+  the map induced by the quotient surjective.
+
+  Therefore the map induced by the quotient is an isomorphism between nonzero groups
+  and as such cannot be null.
   
+  \sk
+  
+  Let $f$ be a map from $S^2\rightarrow T^2$. Then define $\bar{f}:I^2\rightarrow T^2$
+  by the usual quotient of $I^2$ to $S^2$ by identifying the boundary.
+  However $\bar{f}$ is a homotopy and as such it has a lift
+  $\widetilde{f}:I^2\rightarrow \bb{R}^2$. However since $\bar{f}(\partial I^2)$ is
+  a single point and the preimage of any point under the covering
+  map is discrete it must be that $\widetilde{f}(\partial I^2)$ also is a
+  single point. Thus $\widetilde{f}$ is can be identified with a map
+  from $S^2$ to $\bb{R}^2$ such that $\widetilde{f}$ composed with the
+  covering map is $f$. However since $f$ factors through a contractible
+  space it follows that $f$ is null.
 \end{proof}
 
 \sk
