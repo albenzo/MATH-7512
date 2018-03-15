@@ -1,0 +1,81 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+\begin{problem}[28a]
+  Use the Mayer-Vietoris sequence to compute the homology groups of the space
+  obtained from a torus $S^1\times S^1$ by attaching a M\"obius band via a
+  homeomorphism from the boundary circle of the M\"obius band to the
+  circle $S^1\times \{ x_0\}$ in the torus.
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[29]
+  The surface $M_g$ of genus $g$, embedded in $\bb{R}^3$ in the standard way,
+  bounds a compact region $R$. Two copies of $R$, glued together by the identity
+  map between boundary surfaces $M_g$, form a closed $3$-manifold $X$.
+  Compute the homology groups of $X$ into two copies of $R$. Also compute the
+  relative groups $H_i(R,M_g)$.
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[30]
+  For the mapping torus $T_f$ of a map $f: X\rightarrow X$,
+  we constructed in Example 2.48 a long exact sequence
+  \[
+    \xymatrix{
+      \cdots \ar[r] & H_n(X) \ar[r]^{\mathrm{id}-f_*} & H_n(X) \ar[r] & H_n(T_f) \ar[r] & H_{n-1}(X) \ar[r] & \cdots
+    }
+  \]
+  Use this to compute the homology of the mapping tori of the following maps:
+  \begin{enumerate}
+  \item[(a)] A reflection $S^2\rightarrow S^2$
+  \item[(b)] A map $S^2\rightarrow S^2$ of degree $2$.
+  \item[(c)] The map $S^1\times S^1\rightarrow S^1\times S^1$ that is the
+    identity on one factor and a reflection on the other.
+  \item[(d)] The map $S^1\times S^1\rightarrow S^1\times S^1$ that is a
+    reflection on each factor.
+  \item[(e)] The map $S^1\times S^1\rightarrow S^1\times S^1$ that interchanges
+    the two factors and then reflects one of the factors.
+  \end{enumerate}
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
