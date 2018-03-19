@@ -12,6 +12,7 @@
 
 \newcommand{\sk}{\vskip 10mm}
 \newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\rH}{\widetilde{H}}
 
 \theoremstyle{plain}
 \newtheorem{problem}{Problem}
@@ -27,10 +28,52 @@
   Use the Mayer-Vietoris sequence to compute the homology groups of the space
   obtained from a torus $S^1\times S^1$ by attaching a M\"obius band via a
   homeomorphism from the boundary circle of the M\"obius band to the
-  circle $S^1\times \{ x_0\}$ in the torus.
+  circle $S^1\times \{ x_0\}$ in the torus. 
 \end{problem}
 
 \begin{proof}
+  A M\"obius band is homotopy equivalent to a circle, and we know the homology
+  of the torus. Thus we have the long exact sequence
+  \[
+    \xymatrix{
+      \cdots \ar[r] & \rH_n(T^2\cap M) \ar[r] & \rH_n(T^2)\oplus \rH_n(M) \ar[r] & \rH_n(X) \ar[r] & \rH_{n-1}(T^2\cap M) \ar[r] & \cdots
+    }
+  \]
+
+  The intersection $T^2\cap M$ also has the homology of a circle giving us the exact sequence
+  \[
+    \xymatrix{
+      \cdots \ar[r] & \rH_2(M\cap T^2) \ar[r] & \rH_2(T^2) \ar[r] & \rH_2(X) \ar[r] & \rH_1(M\cap T^2) \ar[r] & \rH_1(M)\oplus\rH_1(T^2) \ar[r] & \\
+      &\ar[r] & \rH_1(X) \ar[r] & \rH_1(M\cap T^2) \ar[r] & \cdots
+    }
+  \]
+  which when we substitute in we get
+  \[
+    \xymatrix{
+      0 \ar[r] & \bb{Z} \ar[r]^-{i_*,j_*} & \rH_2(X) \ar[r]^-{\partial_*} & \bb{Z} \ar[r]^-{i_*,j_*} & \bb{Z}\oplus\bb{Z}^2 \ar[r]^-{k_*-l_*} & \rH_1(X) \ar[r] & 0
+    }
+  \]
+  Since the right $i_*,j_*$ is injective the kernel is zero. Thus the image of $\partial_*$
+  is 0 making the left $i_*,j_*$ an isomorphism. Similarly the fact that the kernel
+  of the right $i_*,j_*$ is zero effectively gives us the short exact sequence
+  \[
+    \xymatrix{
+      0 \ar[r] & \bb{Z} \ar[r]^-{i_*,j_*} & \bb{Z}\oplus\bb{Z}^2 \ar[r]^-{k_*-l_*} & \rH_1(X) \ar[r] & 0
+    }
+  \]
+  which implies that $\rH_1(X)\cong \langle x,y,z\rangle/\langle 2x-y\rangle\cong\langle x,z\rangle\cong\bb{Z}^2$.
+
+  Therefore the homology of $X$ is
+  \[
+    H_n(X) =
+    \left\{
+      \begin{array}{cr}
+        \bb{Z} & n=0,2\\
+        \bb{Z}\oplus\bb{Z} & n=1\\
+        0 & \text{otherwise}
+      \end{array}
+    \right.
+  \]
   
 \end{proof}
 
