@@ -61,7 +61,7 @@
       0 \ar[r] & \bb{Z} \ar[r]^-{i_*,j_*} & \bb{Z}\oplus\bb{Z}^2 \ar[r]^-{k_*-l_*} & \rH_1(X) \ar[r] & 0
     }
   \]
-  which implies that $\rH_1(X)\cong \langle x,y,z\rangle/\langle 2x-y\rangle\cong\langle x,z\rangle\cong\bb{Z}^2$.
+  which implies that $\rH_1(X)\cong \langle x,y,z\rangle/\langle 2x-y\rangle$.
 
   Therefore the homology of $X$ is
   \[
@@ -69,7 +69,7 @@
     \left\{
       \begin{array}{cr}
         \bb{Z} & n=0,2\\
-        \bb{Z}\oplus\bb{Z} & n=1\\
+        \bb{Z}\oplus\bb{Z}_2 & n=1\\
         0 & \text{otherwise}
       \end{array}
     \right.
@@ -88,7 +88,103 @@
 \end{problem}
 
 \begin{proof}
+  \textbf{Might be wrong. Double check.}
   
+  First note that the homology of $M_g$ is
+  \[
+    H_i(M_g) = 
+    \left\{
+      \begin{array}{cr}
+        \bb{Z} & i=0,2\\
+        \bb{Z}^{2g} & i=1\\
+        0 & \text{otherwise}
+      \end{array}
+    \right.
+  \]
+
+  Since the region $R$ has the homotopy type of the wedge of $g$ circles
+  its homology is
+  \[
+    H_i(R) = 
+    \left\{
+      \begin{array}{cr}
+        \bb{Z} & i=0\\
+        \bb{Z}^g & i=1\\
+        0 & \text{otherwise}\\
+      \end{array}
+    \right.
+  \]
+
+  Now we represent $X$ as the union of two slightly thickened copies
+  of $R$ such that the intersection is $M_g$. Then using the Mayer-Vietoris
+  sequence we get:
+  \[
+    \xymatrix{
+      0 \ar[r] & H_3(X) \ar[r]^-{\partial_*} & H_2(M_g) \ar[r] & 0 \ar[r] & H_2(X) \ar[r]^-{\partial_*} & H_1(M_g) \ar[r]^-{i_*,j_*} & H_1(R)\oplus H_1(R) \ar[r]^-{k_*-l_*} & H_1(X) \ar[r] & 0
+    }
+  \]
+
+  It immediately follows that $H_3(X)$ is isomorphic to $H_2(M_g)\cong \bb{Z}$. Moreover we know
+  have an exact sequence which if we substitute in we get:
+  \[
+    \xymatrix{
+      0 \ar[r] & H_2(X) \ar[r]^-{\partial_*} & \bb{Z}^{2g} \ar[r]^-{i_*,j_*} & \bb{Z}^g \oplus \bb{Z}^g \ar[r]^-{k_*-l_*} & H_1(X) \ar[r] & 0
+    }
+  \]
+  Since $\partial_*$ is injective from its location in the sequence it follows that
+  $H_2(X)\cong\ker i_*,j_*$. Looking at the map $i_*,j_*$ it is the inclusion of $M_g$ into both
+  copies of $R$. As such half of the meridians will get sent to zero while the others will
+  get sent to the generators of $H_1(R)$. Thus the kernel of $i_*,j_*$ is $\bb{Z}^g\cong H_1(X)$.
+
+  Next since $k_*-l_*$ is surjective we have that $H_2(X)\cong(\bb{Z}^g\oplus\bb{Z}^g)/\text{im\ }i_*,j_*$.
+  The elements in the image of $i_*,j_*$ are those of the form $(a_1,\ldots,a_g,a_1,\ldots,a_g)$.
+  Thus the quotient will be $\bb{Z}^{2g}/\bb{Z}^g\cong\bb{Z}^g\cong H_2(X)$.
+
+  Therefore the homology of $X$ is
+  \[
+    H_i(X) = 
+    \left\{
+      \begin{array}{cr}
+        \bb{Z} & i=0,3\\
+        \bb{Z}^g & i=1,2\\
+        0 & \text{otherwise}
+      \end{array}
+    \right.
+  \]
+
+  \sk
+
+  To calculate $H_i(R,M_g)$ we use the long exact sequence from hatcher to get
+  \[
+    \xymatrix{
+      0 \ar[r] & H_3(R,M_g) \ar[r] & H_2(M_g) \ar[r] & 0 \ar[r] & H_2(R,M_g) \ar[r] & H_1(M_g) \ar[r] & H_1(R) \ar[r] & H_1(R,M_g) \ar[r] & 0
+    }
+  \]
+
+  It follows immediately that $H_3(R,M_g)\cong H_2(M_g)\cong \bb{Z}^{2g}$. In addition we also get
+  the exact sequence
+  \[
+    \xymatrix{
+      0 \ar[r] & H_2(R,M_g) \ar[r]^-{\partial_*} & \bb{Z}^{2g} \ar[r]^-{i_*} & \bb{Z}^g \ar[r]^-{q_*} & H_1(R,M_g) \ar[r] & 0
+    }
+  \]
+
+  The setup is the same as above. Thus $H_2(R,M_g)\cong \ker i_*\cong\bb{Z}^g$. In addition
+  $H_1(R,M_g)\cong \bb{Z}^g/\text{im\ }i_*$. However unlike in the previous problem $i_*$
+  is surjective. As such $H_1(R,M_g)\cong \bb{Z}^g/\bb{Z}^g\cong 0$. The zeroeth homology is
+  zero as $M_g$ touches the single path component of $R$.
+
+  Therefore the relative homology of $R$ with respect to $M_g$ is
+  \[
+    H_i(R,M_g) = 
+    \left\{
+      \begin{array}{cr}
+        \bb{Z} & i=3\\
+        \bb{Z}^g & i=2\\
+        0 & \text{otherwise}
+      \end{array}
+    \right.
+  \]
 \end{proof}
 
 \sk
@@ -115,7 +211,84 @@
 \end{problem}
 
 \begin{proof}
-  
+  \begin{enumerate}
+  \item[(a)] Note that $H_1(T_f)=0$ as it is between $H_1(S^2)$ and $\rH_0(S^2)$.
+    The same holds for $n>3$. All of the possible nonzero items are contained
+    in the exact sequence
+    \[
+      \xymatrix{
+        0\ar[r] & H_3(T_f) \ar[r] & H_2(S^2) \ar[r] & H_2(S^2) \ar[r] & H_2(T_f) \ar[r] & 0
+      }
+    \]
+    As before this gives us that $H_3(T_f)\cong \ker (\mathrm{id}_*-f_*)$ and
+    $H_2(T_f)\cong \bb{Z}/\text{im\ }(\mathrm{id}_*-f_*)$.
+
+    If we evaluate $(\mathrm{id}_*-f_*)(1)$ this is equal to $1-(-1)=2$.
+    The kernel of this is trivial and the image is $2\bb{Z}$. Thus the
+    homology of $T_f$ is
+    \[
+      H_i(T_f) =
+      \left\{
+        \begin{array}{cr}
+          \bb{Z} & i=0\\
+          \bb{Z}_2 & i=2\\
+          0 & \text{otherwise}\\
+        \end{array}
+      \right.
+    \]
+  \item[(b)] Same as (a) but with a different map. If we calculate $(\mathrm{id}_*-f_*)(1)$
+    this is $1-2=-1$. The kernel of this map is trivial and the image is $\bb{Z}$. Thus
+    the homology is:
+    \[
+      H_i(T_f) =
+      \left\{
+        \begin{array}{cr}
+          \bb{Z} & i=0\\
+          0 & \text{otherwise}\\
+        \end{array}
+      \right.
+    \]
+  \item[(c)]
+    Similar to above but $H_1(T^2)$ is not zero so we have to account for that as well.
+    The exact sequence we get from the long exact sequence above is:
+    \[
+      \xymatrix{
+        0
+      }
+    \]
+    \textbf{Probably wrong}
+    \[
+      H_i(T_f) =
+      \left\{
+        \begin{array}{cr}
+          \bb{Z} & i=0,2\\
+          \bb{Z}\oplus\bb{Z}_2 & i=1\\
+          0 & \text{otherwise}\\
+        \end{array}
+      \right.
+    \]
+  \item[(d)]
+    \[
+      H_i(T_f) =
+      \left\{
+        \begin{array}{cr}
+          \bb{Z} & i=0,2,3\\
+          0 & \text{otherwise}\\
+        \end{array}
+      \right.
+    \]
+  \item[(e)]
+    \[
+      H_i(T_f) =
+      \left\{
+        \begin{array}{cr}
+          \bb{Z} & i=0\\
+                 &\\
+          0 & \text{otherwise}\\
+        \end{array}
+      \right.
+    \]
+  \end{enumerate}
 \end{proof}
 
 \sk
