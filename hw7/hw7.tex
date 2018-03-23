@@ -13,6 +13,7 @@
 \newcommand{\sk}{\vskip 10mm}
 \newcommand{\bb}[1]{\mathbb{#1}}
 \newcommand{\rH}{\widetilde{H}}
+\newcommand{\id}{\mathrm{id}}
 
 \theoremstyle{plain}
 \newtheorem{problem}{Problem}
@@ -192,7 +193,7 @@
   we constructed in Example 2.48 a long exact sequence
   \[
     \xymatrix{
-      \cdots \ar[r] & H_n(X) \ar[r]^{\mathrm{id}-f_*} & H_n(X) \ar[r] & H_n(T_f) \ar[r] & H_{n-1}(X) \ar[r] & \cdots
+      \cdots \ar[r] & H_n(X) \ar[r]^{\id-f_*} & H_n(X) \ar[r] & H_n(T_f) \ar[r] & H_{n-1}(X) \ar[r] & \cdots
     }
   \]
   Use this to compute the homology of the mapping tori of the following maps:
@@ -218,10 +219,10 @@
         0\ar[r] & H_3(T_f) \ar[r] & H_2(S^2) \ar[r] & H_2(S^2) \ar[r] & H_2(T_f) \ar[r] & 0
       }
     \]
-    As before this gives us that $H_3(T_f)\cong \ker (\mathrm{id}_*-f_*)$ and
-    $H_2(T_f)\cong \bb{Z}/\text{im\ }(\mathrm{id}_*-f_*)$.
+    As before this gives us that $H_3(T_f)\cong \ker (\id_*-f_*)$ and
+    $H_2(T_f)\cong \bb{Z}/\text{im\ }(\id_*-f_*)$.
 
-    If we evaluate $(\mathrm{id}_*-f_*)(1)$ this is equal to $1-(-1)=2$.
+    If we evaluate $(\id_*-f_*)(1)$ this is equal to $1-(-1)=2$.
     The kernel of this is trivial and the image is $2\bb{Z}$. Thus the
     homology of $T_f$ is
     \[
@@ -234,7 +235,7 @@
         \end{array}
       \right.
     \]
-  \item[(b)] Same as (a) but with a different map. If we calculate $(\mathrm{id}_*-f_*)(1)$
+  \item[(b)] Same as (a) but with a different map. If we calculate $(\id_*-f_*)(1)$
     this is $1-2=-1$. The kernel of this map is trivial and the image is $\bb{Z}$. Thus
     the homology is:
     \[
@@ -247,41 +248,125 @@
       \right.
     \]
   \item[(c)]
-    Similar to above but $H_1(T^2)$ is not zero so we have to account for that as well.
     The exact sequence we get from the long exact sequence above is:
     \[
       \xymatrix{
-        0
+        0 \ar[r] & H_3(T_f) \ar[r]^-{\partial_*} & H_2(T^2)\ar[r]^-{\id_*-f_*} & H_2(T^2) \ar[r]^-{i_*} & H_2(T_f) \ar[r]^-{\partial_*} & H_1(T^2) \ar[r]^-{\id_*-f_*} & H_1(T^2) \ar[r]^-{i_*} & H_1(T_f) \ar[r] & 0
       }
     \]
-    \textbf{Probably wrong}
+    If we substitute in for the known groups we get:
     \[
-      H_i(T_f) =
-      \left\{
-        \begin{array}{cr}
-          \bb{Z} & i=0,2\\
-          \bb{Z}\oplus\bb{Z}_2 & i=1\\
-          0 & \text{otherwise}\\
-        \end{array}
-      \right.
+      \xymatrix{
+        0 \ar[r] & H_3(T_f) \ar[r]^-{\partial_*} & \bb{Z} \ar[r]^-{\id_*-f_*} & \bb{Z} \ar[r]^-{i_*} & H_2(T_f) \ar[r]^-{\partial_*} & \bb{Z}^2 \ar[r]^-{\id_*-f_*} & \bb{Z}^2 \ar[r]^-{i_*} & H_1(T_f) \ar[r] & 0
+      }
     \]
-  \item[(d)]
-    \[
-      H_i(T_f) =
-      \left\{
-        \begin{array}{cr}
-          \bb{Z} & i=0,2,3\\
-          0 & \text{otherwise}\\
-        \end{array}
-      \right.
-    \]
-  \item[(e)]
+
+    We can solve for $H_3(T_f)$ and $H_1(T_f)$ in the same manner as above.
+    The map induced on $H_2(T^2)$ be $\id_*-f_*$ can be seen from
+    $(\id_*-f_*)(1)=1-(-1)=2$. Thus the kernel is trivial making
+    $H_3(T_f)=0$. Similarly $H_1(T_f)\cong\bb{Z}^2/\text{im}(id_*-f_*)$. In the
+    left case the map applied to the generators gives $(id_*-f_*)(1,0)=(0,0)$
+    and $(id_*-f_*)(0,1)=2$. This gives us that $H_1(T_f)\cong\langle x,y\rangle/\langle 2y\rangle\cong \bb{Z}\oplus\bb{Z}_2$.
+
+    Lastly for $H_2(T_f)$ note that since the kernel of the right $\id_*-f_*$ is
+    a copy of $\bb{Z}$ we have that $\partial_*$ is surjective onto said copy of $\bb{Z}$.
+    This gives us that $\bb{Z}\cong H_2(T_f)/(\ker \partial_*)$. However since the kernel of
+    the left $i_*$ is $2\bb{Z}$ (since the image of the left $\id_*-f_*$ is $2\bb{Z}$)
+    it must be that $\ker \partial_*\cong\bb{Z}_2$. Which gives us that $H_2(T_f)\cong \bb{Z}\oplus\bb{Z}_2$.
+
+    Therefore the homology of $T_f$ is
+    
     \[
       H_i(T_f) =
       \left\{
         \begin{array}{cr}
           \bb{Z} & i=0\\
-                 &\\
+          \bb{Z}\oplus\bb{Z}_2 & i=1,2\\
+          0 & \text{otherwise}\\
+        \end{array}
+      \right.
+    \]
+  \item[(d)]
+    Once again we start with the exact sequence
+    \[
+      \xymatrix{
+        0 \ar[r] & H_3(T_f) \ar[r]^-{\partial_*} & \bb{Z} \ar[r]^-{\id_*-f_*} & \bb{Z} \ar[r]^-{i_*} & H_2(T_f) \ar[r]^-{\partial_*} & \bb{Z}^2 \ar[r]^-{\id_*-f_*} & \bb{Z}^2 \ar[r]^-{i_*} & H_1(T_f) \ar[r] & 0
+      }
+    \]
+
+    However this time the left $(id_*-f_*)(1)$ is $1-1=0$. This induces
+    an isomorphism $H_3(T_f)\cong H_2(T^2)\cong \bb{Z}$. This effectively shortens our sequence
+    to
+
+    \[
+      \xymatrix{
+        0 \ar[r] & \bb{Z} \ar[r]^-{i_*} & H_2(T_f) \ar[r]^-{\partial_*} & \bb{Z}^2 \ar[r]^-{\id_*-f_*} & \bb{Z}^2 \ar[r]^-{i_*} & H_1(T_f) \ar[r] & 0
+      }
+    \]
+
+    However as we've seen above, reflection causes $id_*-f_*$ to multiply the cycles of $H_1(T^2)$.
+    Thus this map is injective making $\partial_*$ the zero map. This once more induces an
+    isomorphism with $i_*$ between $\bb{Z}$ and $H_2(T_f)$.
+
+    Finally we have now shortened our exact sequence to a short
+    exact sequence
+    
+    \[
+      \xymatrix{
+        0 \ar[r] &\bb{Z}^2 \ar[r]^-{\id_*-f_*} & \bb{Z}^2 \ar[r]^-{i_*} & H_1(T_f) \ar[r] & 0
+      }
+    \]
+
+    Which gives us that $H_1(T_f)\cong \bb{Z}^2/(2\bb{Z}\oplus 2\bb{Z})\cong\bb{Z}_2\oplus\bb{Z}_2$.
+
+    Therefore the homology of $T_f$ is
+    
+    \[
+      H_i(T_f) =
+      \left\{
+        \begin{array}{cr}
+          \bb{Z} & i=0,2,3\\
+          \bb{Z}_2\oplus\bb{Z}_2 & i=1\\
+          0 & \text{otherwise}\\
+        \end{array}
+      \right.
+    \]
+  \item[(e)]
+    As before we have
+    \[
+      \xymatrix{
+        0 \ar[r] & H_3(T_f) \ar[r]^-{\partial_*} & \bb{Z} \ar[r]^-{\id_*-f_*} & \bb{Z} \ar[r]^-{i_*} & H_2(T_f) \ar[r]^-{\partial_*} & \bb{Z}^2 \ar[r]^-{\id_*-f_*} & \bb{Z}^2 \ar[r]^-{i_*} & H_1(T_f) \ar[r] & 0
+      }
+    \]
+
+    This will also cause the left $\id_*-f_*$ to be the zero map giving us
+    $H_3(T_f)\cong\bb{Z}$. Once again shortening our sequence to
+
+    \[
+      \xymatrix{
+        0 \ar[r] & \bb{Z} \ar[r]^-{i_*} & H_2(T_f) \ar[r]^-{\partial_*} & \bb{Z}^2 \ar[r]^-{\id_*-f_*} & \bb{Z}^2 \ar[r]^-{i_*} & H_1(T_f) \ar[r] & 0
+      }
+    \]
+
+    Note that the right instance of $\id_*-f_*$ is injective
+    as $(\id_*-f_*)(1,0)=(0,1)$ and $(\id_*-f_*)(0,1)=(-1,0)$. Just as
+    before this induces an isomorphism on $H_2(T_f)\cong \bb{Z}$ and giving
+    us a short exact sequence
+
+    \[
+      \xymatrix{
+        0 \ar[r] &\bb{Z}^2 \ar[r]^-{\id_*-f_*} & \bb{Z}^2 \ar[r]^-{i_*} & H_1(T_f) \ar[r] & 0
+      }
+    \]
+
+    However from above we can see that $\id_*-f_*$ is an isomorphism which
+    forces $H_1(T_f)$ to be zero. Therefore the homology of $T_f$ is
+    
+    \[
+      H_i(T_f) =
+      \left\{
+        \begin{array}{cr}
+          \bb{Z} & i=0,2,3\\
           0 & \text{otherwise}\\
         \end{array}
       \right.
