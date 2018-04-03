@@ -1,0 +1,82 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+\begin{problem}[2.2.35]
+  Use the Mayer-Vietoris sequence to show that a
+  nonorientable closed surface, or more generally
+  a finite simplicial complex $X$ for which $H_1(X)$
+  contains torsion, cannot be embedded as a subspace
+  of $\bb{R}^3$ in such a way as to have a neighborhood
+  homeomorphic to the mapping cylinder of some map from a
+  closed orientable surface to $X$. [This assumption on a
+  neighborhood is in fact not needed if one deduces the
+  result from Alexander duality in 3.3]
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[2.2.38]
+  Show that the commutative diagram
+  \[
+    \xymatrix{
+      \cdots \ar[r] & C_{n+1} \ar[dd] \ar[rd] & & B_n \ar[dd] \ar[r] & C_n \ar[dd] \ar[rd] & & B_{n-1} \ar[r] &\cdots\\
+      && A_n \ar[ru] \ar[rd] & && A_{n-1} \ar[ru] \ar[rd] & \\
+      \cdots \ar[r] & E_{n+1} \ar[ru] & & D_n \ar[r] & E_n \ar[ru] & & D_{n-1} \ar[r] &\cdots\\
+    }
+  \]
+  with the two sequences across the top and bottom exact,
+  gives rise to an exact sequence
+  \[
+    \cdots\rightarrow E_{n+1}\rightarrow B_n\rightarrow C_n\oplus D_n\rightarrow E_n\rightarrow B_{n-1}\rightarrow\cdots
+  \]
+  where the maps are obtained from those in the previous
+  diagram in the obvious way, except that $B_n\rightarrow C_n\oplus D_n$
+  has a minus sign in one coordinate.
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[2.B.1]
+  Compute $H_i(S^n\setminus X)$ when $X$ is he subspace of $S^n$ homeomorphic to
+  $S^k\vee S^\ell$ or to $S^k\coprod S^\ell$.
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
