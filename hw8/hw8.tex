@@ -13,6 +13,7 @@
 \newcommand{\sk}{\vskip 10mm}
 \newcommand{\bb}[1]{\mathbb{#1}}
 \newcommand{\ra}{\rightarrow}
+\newcommand{\img}{\text{im}\ }
 
 \theoremstyle{plain}
 \newtheorem{problem}{Problem}
@@ -37,7 +38,24 @@
 \end{problem}
 
 \begin{proof}
-  
+  Let $i:X\rightarrow\bb{R^3}$ be an embedding with $N\subset \bb{R}^3$ such that
+  $N\cong M_f$ where $M_f$ is the mapping cylinder for a map $f:Y\rightarrow X$
+  with $Y$ closed and orientable. Let $A= \bb{R}^3\setminus i(X)$. Then
+  $A\cap N = N\setminus i(X)\cong Y$. Note that because $N$ retracts onto $i(X)$ that
+  $H_n(N)=H_n(X)\oplus H_n(N,X)$. Then using Mayer-Vietrois sequence with reduced
+  homology we get
+  \[
+    \xymatrix{
+      0\ar[r] & H_1(Y) \ar[r] & H_1(\bb{R}^3\setminus i(X))\oplus H_1(X)\oplus H_1(N,X) \ar[r] & 0
+    }
+  \]
+  Which gives us an isomorphism. However since $Y$ is a closed orientable surface
+  its first homology group is isomorphic $\bb{Z}^{2g}$ which contains no torsion while
+  the other group does which is a contradiction.
+
+  Therefore a finite simplicial complex with torsion cannot be embedded into $\bb{R}^3$
+  such that it has a neighborhood homeomorphic to the mapping cylinder for a map
+  from a closed orientable surface to said complex.
 \end{proof}
 
 \sk
@@ -46,9 +64,9 @@
   Show that the commutative diagram
   \[
     \xymatrix{
-      \cdots \ar[r] & C_{n+1} \ar[dd] \ar[rd] & & B_n \ar[dd] \ar[r] & C_n \ar[dd] \ar[rd] & & B_{n-1} \ar[r] &\cdots\\
-      && A_n \ar[ru] \ar[rd] & && A_{n-1} \ar[ru] \ar[rd] & \\
-      \cdots \ar[r] & E_{n+1} \ar[ru] & & D_n \ar[r] & E_n \ar[ru] & & D_{n-1} \ar[r] &\cdots\\
+      \cdots \ar[r] & C_{n+1} \ar[dd]^k \ar[rd]^\gamma & & B_n \ar[dd]^j \ar[r]^i & C_n \ar[dd]^k \ar[rd]^\gamma & & B_{n-1} \ar[r] \ar[dd]^j&\cdots\\
+      && A_n \ar[ru]^{\alpha_b} \ar[rd]^{\alpha_d} & && A_{n-1} \ar[ru]^{\alpha_b} \ar[rd]^{\alpha_d} & \\
+      \cdots \ar[r] & E_{n+1} \ar[ru]^\epsilon & & D_n \ar[r]^l & E_n \ar[ru]^\epsilon & & D_{n-1} \ar[r] &\cdots\\
     }
   \]
   with the two sequences across the top and bottom exact,
@@ -62,7 +80,39 @@
 \end{problem}
 
 \begin{proof}
-  
+  Label the map $E_{n+1}\rightarrow B_n$, $B_n\rightarrow C_n\oplus D_n$, and $C_n\oplus D_n\rightarrow E_n$ as
+  $\varphi,(i,-j)$, and $k+l$ respectively. There are six things to verify:
+  \begin{itemize}
+  \item$\ker(\varphi)\subseteq\img(k+l)$: Suppose that $e\in\ker\varphi$. Then $\epsilon\circ\alpha_b(e)=0$
+    and by commutativity $\beta\circ\epsilon\circ\alpha_b(e)=\epsilon\circ\alpha_d(e)=0$. By exactness there is
+    a $c\in C_{n+1}$ such that $\gamma(c)=\epsilon(e)$. By commutativity $\gamma(c)=\epsilon\circ k(c)=\epsilon(e)$.
+    As such $\epsilon(e-k(c))=0$ and by exactness there is a $d\in D_{n+1}$ such that
+    $l(d)=e-k(c)$. It then follows that $k+l(c+d)=k(c)+e-k(c)=e\in\img(k+l)$.
+  \item$\img(k+l)\subseteq\ker(\varphi)$: Let $e\in\img(k+l)$. Then there exists $c\in C_{n+1}$ and
+    $d\in D_{n+1}$ such that $k(c)+l(d)=e$. Then $\varphi(k(c)+l(d))=\alpha_b\circ\epsilon\circ k(c)+\alpha_b\circ\epsilon\circ l(d)$.
+    First note that $\epsilon\circ l(d)=0$ by exactness. By commutativity $\epsilon\circ k(c)=\gamma(c)$ which
+    implies that $\alpha_b\circ\gamma(c)=0$. Therefore $\varphi(e)=0$.
+  \item$\ker(i,-j)\subseteq\img\varphi$: Let $b\in\ker(i,-j)$. Then we have that $i(b)=j(b)=0$. By exactness
+    there is an $a\in A_n$ such that $\alpha_b(a)=b$. From commutativity $\alpha_d(a)=j\circ\alpha_b(a)=0$. It
+    then follows from exactness that there is a $c\in C_{n+1}$ such that $k(c)=a$. Finally
+    by commutativity $\\varphi (k(c))=b$
+  \item$\img\varphi\subseteq\ker(i,-j)$: Let $b\in\img\varphi $. Then there exists an $e\in E_{n+1}$ such that
+    $\varphi(e)=\alpha_b\circ\epsilon(e)=b$. Apply $i,-j$ to get $i\circ\alpha_b\circ\epsilon(e)-j\circ\alpha_b\circ\epsilon(e)$. The left term
+    is zero by exactness and the right term is transformed to $\alpha_d\circ\epsilon(e)$ which
+    is also zero by exactness. Therefore $i,-j(b)=0$.
+  \item$\ker(k+l)\subseteq\img(i,-j)$: Let $c+d\in\ker(k+l)$. Then $k(c)+l(d)=0$ which implies
+    that $k(c)=-l(d)$. By exactness we have that $\gamma(c)=-\epsilon\circ l(d)=0$. Thus there
+    exists a $b\in B_n$ such that $i(b)=c$. Moreover $l(d+j(b))=l(d)-l(d)=0$ which
+    by exactness gives us an $a\in A_n$ such that $\alpha_d(a)=d+j(b)$. Then
+    $j(\alpha_b(a)-j(b))=d+j(b)-j(b)=d$ by commutativity. Then if note that
+    $i(\alpha_b(a)-b)=-c$ we see that $\alpha_b(a)=0$ which implies that $j(-b)=d$
+    showing that $i,-j(b)=c+d$.
+  \item$\img(i,-j)\subseteq\ker(k+l)$: Let $c,d\in\img(i,-j)$. Then there exists
+    a $b\in B_n$ such that $i,-j(b)=c+d$. Note that by commutativity
+    $l\circ j(-b)=i\circ k(-b)=l(d)$. Thus $k(c)+l(d)=k\circ i(b)+k\circ i(-b)=k\circ i(b-b)=0$.
+  \end{itemize}
+
+  Therefore since all of the above conditions hold the sequence it commutative.
 \end{proof}
 
 \sk
@@ -72,11 +122,102 @@
   $S^k\vee S^\ell$ or to $S^k\coprod S^\ell$.
 \end{problem}
 
-\begin{proof}
-  
-\end{proof}
+Let $A:=S^n\setminus S^k$ and $B:=S^n\setminus S^\ell$. Then $A\cap B= S^n\setminus X$. Now
+we split into two cases. First if we are doing the wedge of
+$S^k$ and $S^\ell$ then $A\cup B=\bb{R}^n$. Using the Mayer-Vietoris
+sequence and lemma $2.B.1$ we get
+\[
+  \xymatrix{
+    0 \ar[r] & H_i(S^n\setminus X) \ar[r] & H_i(S^k)\oplus H_i(S^\ell) \ar[r] & 0
+  }
+\]
+for $i>0$. Thus if $k\neq \ell$
+\[
+  H_i(S^n\setminus X) =
+  \left\{
+    \begin{array}{lr}
+      \bb{Z}& i=n-k-1,n-\ell-1\\
+      0 & \text{else}
+    \end{array}
+  \right.
+\]
+Otherwise if $k=\ell$ then
+\[
+  H_i(S^n\setminus X) =
+  \left\{
+    \begin{array}{lr}
+      \bb{Z}^2& i=n-k-1\\
+      0 & \text{else}
+    \end{array}
+  \right.
+\]
+The disjoint union case is similar. If $k,\ell>0$ then it
+is the same the only difference being the portion for $i=n$ where
+\[
+  \xymatrix{
+    0 \ar[r] & H_{n}(S^n) \ar[r] & H_{n-1}(S^n\setminus X) \ar[r] & 0
+  }
+\]
+Then if $k\neq \ell$
+\[
+  H_i(S^n\setminus X) =
+  \left\{
+    \begin{array}{lr}
+      \bb{Z}& i=n-k-1,n-\ell-1,n-1\\
+      0 & \text{else}
+    \end{array}
+  \right.
+\]
+Otherwise if $k=\ell$ then
+\[
+  H_i(S^n\setminus X) =
+  \left\{
+    \begin{array}{lr}
+      \bb{Z} & i=n-1\\
+      \bb{Z}^2& i=n-k-1\\
+      0 & \text{else}
+    \end{array}
+  \right.
+\]
 
-\sk
+On the other hand if either $k$ or $\ell$ is zero then for $n$ we have
+\[
+  \xymatrix{
+    0 \ar[r] & H_{n}(S^n) \ar[r] & H_{n-1}(S^n\setminus X) \ar[r] & H_{n-1}(A)\oplus H_{n-1}(B) \ar[r] & 0
+  }
+\]
+Then if $k=\ell=0$ we have
+\[
+  H_i(S^n\setminus X) =
+  \left\{
+    \begin{array}{lr}
+      \bb{Z}^3& i=n-1\\
+      0 & \text{else}
+    \end{array}
+  \right.
+\]
+If just $k=0$ we have
+\[
+  H_i(S^n\setminus X) =
+  \left\{
+    \begin{array}{lr}
+      \bb{Z}^2& i=n-1\\
+      \bb{Z} & i=n-\ell-1\\
+      0 & \text{else}
+    \end{array}
+  \right.
+\]
+Finally if just $\ell=0$ we have
+\[
+  H_i(S^n\setminus X) =
+  \left\{
+    \begin{array}{lr}
+      \bb{Z}^2& i=n-1\\
+      \bb{Z} & i=n-k-1\\
+      0 & \text{else}
+    \end{array}
+  \right.
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
