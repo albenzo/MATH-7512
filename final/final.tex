@@ -1,0 +1,116 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage[all,cmtip]{xy}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\rH}{\widetilde{H}}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+
+\begin{problem}[2.1.17]
+  \begin{enumerate}
+  \item[(a)] Compute the homology groups $H_n(X,A)$ when $X$ is $S^2$ or
+    $S^1\times S^1$ and $A$ is a finite set of points in $X$.
+  \item[(b)] Compute the groups $H_n(X,A)$ and $H_n(X,B)$ for $X$ a
+    closed orientable surface of genus two with $A$ and $B$ the circles
+    shown ($A$ is circle around join of Tori and $B$ is around tube of right
+    tori). [What are $X/A$ and $X/B$.]
+  \end{enumerate}
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[2.2.40]
+  From the long exact sequence of homology groups associated to the short
+  exact sequence of chain complexes
+  $0\rightarrow C_i(X)\xrightarrow{n} C_i(X)\rightarrow C_i(X;\bb{Z}_n)\rightarrow 0$
+  deduce immediately that there are short exact sequences
+  \[
+    0\rightarrow H_i(X)/nH_i(X)\rightarrow H_i(X;\bb{Z}_n)\rightarrow n-Torsion(H_{i-1}(X))\rightarrow 0
+  \]
+  where $n-Torsion(G)$ is the kernel of the map $G\xrightarrow{n} G$,
+  $g\mapsto ng$. Use this to show that $\rH_i(X;\bb{Z}_p)=0$ for all $i$ and all
+  primes $p$ iff $\rH_i(X)$ is a vector space over $\bb{Q}$ for all $i$.
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[2.2.43(a)]
+  Show that a chain complex of a free abelian groups $C_n$ splits as a
+  direct sum of subcomplexes $0\rightarrow L_{n+1}\rightarrow K_n\rightarrow 0$
+  with at most two nonzero terms. [Show that the short exact sequence
+  $0\rightarrow\ker\partial\rightarrow C_n\rightarrow\text{im\ }\partial\rightarrow 0$
+  splits and take $K_n=\ker\partial$.]
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[2.3.4]
+  Show that the wedge axiom for homology theories follows from the other
+  axioms in the case of finite wedge sums.
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[2.B.5]
+  Let $S$ be an embedded $k$-sphere in $S^n$ for which there exists a disk
+  $D^n\subset S^n$ intersecting $S$ in the disk $D^k\subset D^n$ defined by the
+  first $k$ coordinates of $D^n$. Let $D^{n-k}\subset D^n$ be the disk defined
+  by the last $n-k$ coordinates, with boundary sphere $S^{n-k-1}$. Show that the
+  inclusions $S^{n-k-1}\hookrightarrow S^n\setminus S$ induces an isomorphism on
+  homology groups.
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem}[2.B.10]
+  Use the transfer sequence for the covering $S^\infty\rightarrow\bb{R}P^\infty$
+  to compute  $H_n(\bb{R}P^\infty;\bb{Z}_2)$.
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
