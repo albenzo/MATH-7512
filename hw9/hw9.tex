@@ -1,4 +1,3 @@
-
 \documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amscd}
@@ -43,12 +42,30 @@
 
 \begin{problem}[2.3.3]
   Show that if $\rh$ is a reduced homology theory then $\rh_n(point)=0$ for all
-  $n$. Deduce that there are suspension isomorphisms $\rh_n(X)\cong\rh_{n+1}SX$
+  $n$. Deduce that there are suspension isomorphisms $\rh_n(X)\cong\rh_{n+1}(SX)$
   for all $n$.
 \end{problem}
 
 \begin{proof}
-  
+  First note that if we wedge the point with itself that we get a point back.
+  Then using the wedge axiom we have $\rh_i(\bigvee_1^2*=*)$ is isomorphic to
+  $\rh_i(*)\oplus\rh_i(*)$. The only way this could occur would be if $\rh_i(*)\cong 0$
+  for all $i$.
+
+  For the suspension use the Mayer-Vietoris sequence along with the
+  fact that the cone of a space is contractable to get
+  \[
+    \xymatrix{
+      \cdots \ar[r] & \rh_{i+1}(CX)\oplus \rh_{i+1}(CX) \ar[r] & \rh_{i+1}(SX) \ar[r] & \rh_i(X) \ar[r] & \rh_i(CX)\oplus \rh_i(CX) \ar[r] & \cdots
+    }
+  \]
+  Which is equivalent to
+  \[
+    \xymatrix{
+      0 \ar[r] & \rh_{i+1}(SX) \ar[r] & \rh_i(X) \ar[r] & 0
+      }
+  \]
+  This show that $\rh_i(X)\cong\rh_{i+1}(SX)$ for all $i$.
 \end{proof}
 
 \sk
@@ -63,7 +80,20 @@
 \end{problem}
 
 \begin{proof}
-  
+  As described in the hint. Construct a $S^n\setminus S^k$ and decompose it
+  as $A= D^n\setminus D$ and $B=S^n\setminus D$. Then $A\cap B=S^{n-1}\setminus S$. By
+  Prop 2B.1 we have that $B$ is null-homologous. Then from the Mayer-Vietoris
+  sequence we have
+  \[
+    \xymatrix{
+      \cdots \ar[r] & H_i(S^{n-1}\setminus S) \ar[r] & H_i(D^n\setminus D) \ar[r] & H_i(S^n\setminus S^k) \ar[r] & \cdots
+    }
+  \]
+  Where the map between $H_i(S^{n-1}\setminus S)$ and $H_i(D^n\setminus D)$ is inclusion. Then
+  Using 2B.1 again we know that $S^n\setminus S^k$ will have zero homology everywhere
+  but for $i=n-k-1$. This induces isomorphisms for $i>n-k-1$ and $i<n-k-2$.
+
+  Finally for $i=n-k-1,n-k-2$ we have 
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
