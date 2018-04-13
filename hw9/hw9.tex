@@ -40,7 +40,7 @@
   \[
     \cdots\rightarrow H_{i+1}(X\times S^n,X\times\{ x_0\}) \rightarrow H_i(X\times\{x_0\}) \rightarrow H_i(X\times S^n) \rightarrow H_i(X\times S^n,X\times\{ x_0\}) \rightarrow H_{i-1}(X\times\{x_0\}) \rightarrow \cdots
   \]
-
+  Since $X\times\{x_0\}$ is a retract of $X\times S^n$ we have that the sequence splits.
   Thus by the splitting lemma we have that $H_i(X\times S^n)\cong H_i(X)\oplus H_i(X\times S^n,X\times\{ x_0\})$.
 
   For the next isomorphism $H_i(X\times S^n,X\times\{x_0\})\cong H_{i-1}(X\times S^{n-1},X\times\{x_0\})$ apply
@@ -80,7 +80,7 @@
   for all $i$.
 
   For the suspension use the Mayer-Vietoris sequence along with the
-  fact that the cone of a space is contractable to get
+  fact that the cone of a space is contractible to get
   \[
     \xymatrix{
       \cdots \ar[r] & \rh_{i+1}(CX)\oplus \rh_{i+1}(CX) \ar[r] & \rh_{i+1}(SX) \ar[r] & \rh_i(X) \ar[r] & \rh_i(CX)\oplus \rh_i(CX) \ar[r] & \cdots
@@ -118,8 +118,21 @@
     }
   \]
 
-  Need to show that everything is zero unless $i=n-k-1,n-k-2$. Otherwise
-  make it work.
+  However $H_i(S^n\setminus S^k)=0$ unless $i=n-k-1$. Likewise since $S\cong S^{k-1}$ as a
+  subspace we have that $H_i(S^{n-1}\setminus S)\cong 0$ unless $i=(n-1)-(k-1)-1=n-k-1$.
+  Similarly $H_i(D^n\setminus D)=0$ unless $i=n-k-1$. They will all be $\bb{Z}$ otherwise.
+  Thus we get the short exact sequence
+  \[
+    \xymatrix{
+      \cdots \ar[r] & H_{n-k-1}(S^{n-1}\setminus S) \ar[r]^-{i_*,i_*} & H_{n-k-1}(D^n\setminus D)\oplus H_{n-k-1}(D^n\setminus D) \ar[r]^-{k_*-k_*} & H_{n-k-1}(S^n\setminus S^k) \ar[r] & \cdots
+    }
+  \]
+
+  From this we can see that the kernel of $k_*-k_*$ is $\{(x,x)\in \bb{Z}^2\}$.
+  However since $(1,1)\in\ker (k_*-k_*)$ from exactness it must be that
+  $i_*(1)=1$ which shows that $i_*$ is an isomorphism. Since $i_*$ is the
+  zero map between groups that are zero elsewhere this shows that the
+  map induced by inclusion is indeed an isomorphism for all $i$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
