@@ -35,7 +35,34 @@
 \end{problem}
 
 \begin{proof}
-  
+  First we show that $H_i(X\times S^n)\cong H_i(X)\oplus H_i(X\times S^n,X\times\{ x_0\})$. Swap out
+  $H_i(X)$ for $H_i(X\times\{x_0\})$. Then apply the long exact sequence for the pair to get
+  \[
+    \cdots\rightarrow H_{i+1}(X\times S^n,X\times\{ x_0\}) \rightarrow H_i(X\times\{x_0\}) \rightarrow H_i(X\times S^n) \rightarrow H_i(X\times S^n,X\times\{ x_0\}) \rightarrow H_{i-1}(X\times\{x_0\}) \rightarrow \cdots
+  \]
+
+  Thus by the splitting lemma we have that $H_i(X\times S^n)\cong H_i(X)\oplus H_i(X\times S^n,X\times\{ x_0\})$.
+
+  For the next isomorphism $H_i(X\times S^n,X\times\{x_0\})\cong H_{i-1}(X\times S^{n-1},X\times\{x_0\})$ apply
+  the relative Mayer-Vietoris sequence with $A=X\times S^n\setminus\{x_0\}$, $B=X\times S^n\setminus\{x_1\}$ ($x_1\neq x_0$),
+  and $C,D=X\times \{x_0\}$. Then we have
+  \[
+    \cdots\rightarrow H_i(X\times S^n\setminus\{x_0\},X\times\{x_0\})\oplus H_i(X\times S^n\setminus\{x_0\},X\times\{x_1\}) \rightarrow H_i(X\times S^n,X\times\{x_0\}) 
+  \]
+  \[
+    \rightarrow H_{i-1}(X\times S^{n-1},X\times\{x_0\})\rightarrow H_{i-1}(X\times S^n\setminus\{x_0\},X\times\{x_0\})\oplus H_{i-1}(X\times S^n\setminus\{x_0\},X\times\{x_1\}) \rightarrow\cdots
+  \]
+
+  However the terms on the left and the right are all zero. As such
+  this induces an isomorphism between $H_i(X\times S^n,X\times\{x_0\})\cong H_{i-1}(X\times S^{n-1},X\times\{x_0\})$.
+
+  Finally apply the second isomorphism $n$ times to the first isomorphism to get
+  $H_i(X\times S^n)\cong H_i(X\times\{x_0\})\oplus H_{i-n}(X\times S^0,X\times\{x_0\})$. However the relative homology
+  will make one of the two copies of $X$ in $X\times S^0$ null. As such
+  $H_{i-n}(X\times S^0,X\times\{x_0\})\cong H_{i-n}(X)$.
+
+  Therefore $H_i(X\times S^n)\cong H_i(X)\oplus H_{i-n}(X)$ for all $i,n$ where we assume $H_i(X)=0$ for
+  $i<0$.
 \end{proof}
 
 \sk
@@ -80,20 +107,19 @@
 \end{problem}
 
 \begin{proof}
-  As described in the hint. Construct a $S^n\setminus S^k$ and decompose it
-  as $A= D^n\setminus D$ and $B=S^n\setminus D$. Then $A\cap B=S^{n-1}\setminus S$. By
-  Prop 2B.1 we have that $B$ is null-homologous. Then from the Mayer-Vietoris
-  sequence we have
+  Using the construction listed in the problem decompose $S^n\setminus S^k$ as $A\cup B$
+  where $A=(S^{n-1}\times I,S\times I)$ filled in with $D^n\setminus D$ on one side and $B$ as the
+  filling on the other. Then using the fact that taking the Cartesian product
+  with the interval does not change the homology and applying the Mayer-Vietoris
+  sequence we get:
   \[
     \xymatrix{
-      \cdots \ar[r] & H_i(S^{n-1}\setminus S) \ar[r] & H_i(D^n\setminus D) \ar[r] & H_i(S^n\setminus S^k) \ar[r] & \cdots
+      \cdots \ar[r] & H_i(S^{n-1}\setminus S) \ar[r] & H_i(D^n\setminus D)\oplus H_i(D^n\setminus D) \ar[r] & H_i(S^n\setminus S^k) \ar[r] & \cdots
     }
   \]
-  Where the map between $H_i(S^{n-1}\setminus S)$ and $H_i(D^n\setminus D)$ is inclusion. Then
-  Using 2B.1 again we know that $S^n\setminus S^k$ will have zero homology everywhere
-  but for $i=n-k-1$. This induces isomorphisms for $i>n-k-1$ and $i<n-k-2$.
 
-  Finally for $i=n-k-1,n-k-2$ we have 
+  Need to show that everything is zero unless $i=n-k-1,n-k-2$. Otherwise
+  make it work.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
