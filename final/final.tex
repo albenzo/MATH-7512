@@ -26,7 +26,6 @@
 
 \begin{document}
 
-
 \begin{problem}[2.1.17]
   \begin{enumerate}
   \item[(a)] Compute the homology groups $H_n(X,A)$ when $X$ is $S^2$ or
@@ -39,7 +38,82 @@
 \end{problem}
 
 \begin{proof}
-  
+  \begin{enumerate}
+  \item[(a)] Beginning with $S^2$ use the long exact sequence for homology
+    to get
+    \[
+      0 \rightarrow H_2(S^2)\cong \bb{Z} \rightarrow H_2(S^2,A) \rightarrow 0 \rightarrow H_1(S^2)\cong 0 \rightarrow H_1(S^2,A) \rightarrow H_0(A)\cong\bb{Z}^{|A|} \rightarrow H_0(S^2)\cong\bb{Z} \rightarrow 0
+    \]
+    From this we can deduce that
+    \[
+      H_i(S^2,A)\cong \left\{
+        \begin{array}{lr}
+          \bb{Z}& i=2\\
+          \bb{Z}^{|A|-1} & i=1\\
+          0 & \text{else}
+        \end{array}
+      \right.
+    \]
+    Similarly for $T^2$ we have the long exact sequence
+    \[
+      0 \rightarrow H_2(T^2)\cong \bb{Z} \rightarrow H_2(T^2,A) \rightarrow 0 \rightarrow H_1(T^2)\cong \bb{Z}^2 \rightarrow H_1(T^2,A) \rightarrow H_0(A)\cong\bb{Z}^{|A|} \rightarrow H_0(T^2)\cong\bb{Z} \rightarrow 0
+    \]
+    Which gives us the relative homology
+    \[
+      H_i(T^2,A) = \left\{
+        \begin{array}{lr}
+          \bb{Z}&i=2\\
+          \bb{Z}^{|A|+2}& i=1\\
+          0 & \text{else}
+        \end{array}
+      \right.
+    \]
+  \item[(b)] Starting with $A$ and after substituting for known groups we have the long exact sequence
+    \[
+      0 \rightarrow \bb{Z} \rightarrow H_2(\Sigma_2,A)\rightarrow \bb{Z}\rightarrow\bb{Z}^4\rightarrow H_1(\Sigma_2,A)\rightarrow \bb{Z} \rightarrow \bb{Z} \rightarrow 0
+    \]
+    However the last map $\bb{Z}\rightarrow \bb{Z}$ is an isomorphism since it is the inclusion
+    of one connected component to another. So we can shorten our exact sequence to
+    \[
+      0 \rightarrow \bb{Z} \rightarrow H_2(\Sigma_2,A)\rightarrow \bb{Z}\rightarrow\bb{Z}^4\rightarrow H_1(\Sigma_2,A)\rightarrow 0
+    \]
+    Finally note that the map from $\bb{Z}$ to $\bb{Z}^4$ is going to be the zero map.
+    As such this will force two shorter exact sequences
+    \[
+      0\rightarrow \bb{Z} \rightarrow H_2(\Sigma_2,A)\rightarrow \bb{Z}\rightarrow 0 , 0\rightarrow \bb{Z}^4\rightarrow H_1(\Sigma_2,A)\rightarrow 0
+    \]
+    which give us
+    \[
+      H_i(\Sigma_2,A) = \left\{
+        \begin{array}{lr}
+          \bb{Z}^2& i=2\\
+          \bb{Z}^4 & i=1\\
+          0 & \text{else}\\
+        \end{array}
+      \right.
+    \]
+
+    The case for $B$ is similar. We get down to the same exact sequence
+    \[
+      0 \rightarrow \bb{Z} \rightarrow H_2(\Sigma_2,B)\rightarrow \bb{Z}\rightarrow\bb{Z}^4\rightarrow H_1(\Sigma_2,B)\rightarrow 0
+    \]
+    However in this case the map $\bb{Z}\rightarrow\bb{Z}^4$ sends $1$ to
+    one of the four generators. Since this is injective the map will induce
+    an isomorphism for the second homology and will induce the short exact sequence
+    \[
+      0 \rightarrow \bb{Z} \rightarrow \bb{Z}^4\rightarrow H_1(\Sigma_2,B) \rightarrow 0
+    \]
+    giving us the homology
+    \[
+      H_i(\Sigma_2,B) = \left\{
+        \begin{array}{lr}
+          \bb{Z}& i=2\\
+          \bb{Z}^3 &i=1\\
+          0 \text{else}\\
+        \end{array}
+        \right.
+    \]
+  \end{enumerate}
 \end{proof}
 
 \sk
@@ -47,7 +121,7 @@
 \begin{problem}[2.2.40]
   From the long exact sequence of homology groups associated to the short
   exact sequence of chain complexes
-  $0\rightarrow C_i(X)\xrightarrow{n} C_i(X)\rightarrow C_i(X;\bb{Z}_n)\rightarrow 0$
+  $0\rightarrow C_i(X)\xrightarrow{n} C_i(X)\xrightarrow{\varphi} C_i(X;\bb{Z}_n)\rightarrow 0$
   deduce immediately that there are short exact sequences
   \[
     0\rightarrow H_i(X)/nH_i(X)\rightarrow H_i(X;\bb{Z}_n)\rightarrow n-Torsion(H_{i-1}(X))\rightarrow 0
@@ -58,7 +132,28 @@
 \end{problem}
 
 \begin{proof}
-  
+  Since we have a short exact sequence of chain complexes we can form
+  a long exact sequence in homology of the form
+  \[
+    \xymatrix{
+      \cdots \ar[r]^{\partial_*} & H_i(X) \ar[r]^{n_*} & H_i(X) \ar[r]^{\varphi_*} & H_i(X;\bb{Z}_n) \ar[r] & \cdots
+    }
+  \]
+  From this we can make a short exact sequence
+  \[
+    0\rightarrow H_i(X)/nH_i(X)\rightarrow H_i(X;\bb{Z}_n)\rightarrow n-Torsion(H_{i-1}(X))\rightarrow 0
+  \]
+  which will be exact since the first map is quotienting out by the kernel of $\varphi_*$ and
+  the latter map is surjective since $n-Torsion$ is defined as the kernel of $n_*$.
+
+  Suppose that $\rH_i(X;\bb{Z}_p)=0$ for all primes $p$. Then $p-Torsion(\rH_i(X))=0$ which
+  implies that $\rH_i(X)$ has no torsion. So we can then define an action of $\bb{Q}$ on
+  $H_i(X)$ by $(\frac{p}{q})\cdot g = h$ where $h$ is the unique solution to $p\cdot g=q\cdot h$.
+  Since there is no torsion this action will give us a vector space.
+
+  Now suppose that $\rH_i(X)$ is a $\bb{Q}$ vector space. Then there is no torsion in
+  $\rH_i(X)$ as otherwise it wouldn't be a vector space. It then follows that $\rH(X;\bb{Z}_p)=0$
+  as both the left and right groups of the short exact sequence will be forced to be zero.
 \end{proof}
 
 \sk
@@ -72,7 +167,35 @@
 \end{problem}
 
 \begin{proof}
-  
+  First note that the short exact sequence
+  \[
+    \xymatrix{
+      0\ar[r] & \ker\partial_n\ar[r] & C_n \ar[r] & \text{im\ }\partial_{n+1} \ar[r] & 0
+    }
+  \]
+  splits into
+  \[
+    \xymatrix{
+      0\ar[r] & \ker\partial_n\ar[r] & \ker\partial_n\oplus\text{im\ }\partial_{n+1} \ar[r] & \text{im\ }\partial_{n+1} \ar[r] & 0
+    }
+  \]
+  since $\text{im\ }\partial_{n+1}$ is free. Let $K_n:=\ker\partial_n$ and let $L_n:=\text{im\ }\partial_{n+1}$.
+  The sequence $0\rightarrow L_{n+1}\rightarrow K_n\rightarrow 0$ is a chain complex as $\partial^2=0$. It then follows that we
+  can express the chain complex
+  \[
+    \xymatrix{
+      \cdots \ar[r] & C_{n+1} \ar[r] & C_n \ar[r] & C_{n+1} \ar[r] & \cdots
+    }
+  \]
+  as a direct sum of the form
+  \[
+    \xymatrix{
+      & & 0 \ar[r] & L_{n-1} \ar[r] & \cdots\\
+      & 0 \ar[r] & L_n \ar[r] & K_{n-1} \ar[r] & 0\\
+      0 \ar[r] & L_{n+1} \ar[r] & K_n \ar[r] & 0 &\\
+      \cdots \ar[r] & K_{n+1} \ar[r] & 0 & &\\
+    }
+  \]
 \end{proof}
 
 \sk
@@ -83,7 +206,26 @@
 \end{problem}
 
 \begin{proof}
-  
+  From Hatcher we have that the Mayer-Vietoris sequence holds, even without
+  the wedge axiom. If we calculate the wedge of two spaces $X_1$ and $X_2$, then
+  we can deduce their homology using
+  Mayer-Vietoris sequence along with the homology of the point being null to
+  get
+  \[
+    \xymatrix{
+      0 \ar[r] & h_i(X)\oplus h_i(Y) \ar[r] & h_i(X_1\vee X_2) \ar[r] & 0
+    }
+  \]
+  Now assume that the wedge axiom holds when we wedge $n$ spaces together. As before
+  if we calculate the homology of $\bigvee_1^{n+1}X_{i}$ we get
+  \[
+    \xymatrix{
+      0 \ar[r] & h_i(\bigvee_1^n X_i)\oplus h_i(X_{n+1})\cong\bigoplus_1^n h_i(X_i) \ar[r] & h_i(\bigvee_1^{n+1}X_i) \ar[r] & 0
+    }
+  \]
+
+  Therefore the wedge axiom follows from the other homology axioms when restricted
+  to finite wedge sums.
 \end{proof}
 
 \sk
@@ -109,7 +251,34 @@
 \end{problem}
 
 \begin{proof}
-  
+  First recall that the infinite sphere $S^\infty$ has zero homology except
+  for zeroth homology. It then follows if we apply the transfer sequence
+  for $i>1$
+  \[
+    \xymatrix{
+      0 \ar[r] & H_i(\bb{R}P^\infty;\bb{Z}_2) \ar[r] & H_{i-1}(\bb{R}P^\infty;\bb{Z}_2) \ar[r] & 0
+    }
+  \]
+  we see that $H_i(\bb{R}P^\infty;\bb{Z}_2)\cong H_{i-1}(\bb{R}P^\infty;\bb{Z}_2)$ for $i>1$.
+  We know that $H_0(\bb{R}P^\infty;\bb{Z}_2)\cong \bb{Z}_2$ since there only a single
+  connected component. As such all we need to figure out is $H_1(\bb{R}P^\infty;\bb{Z}_2)$
+  and this will determine the rest.
+
+  Using the transfer sequence at the tail end we get
+  \[
+    \xymatrix{
+      0 \ar[r] & H_i(\bb{R}P^\infty;\bb{Z}_2) \ar[r]^{\partial_*} & H_0(\bb{R}P^\infty;\bb{Z}_2)\cong\bb{Z}_2 \ar[r]^{\tau_*} & H_0(S^\infty;\bb{Z}_2)\cong\bb{Z}_2 \ar[r]^{p_*} & H_0(\bb{R}P^\infty;\bb{Z}_2)\cong\bb{Z}_2 \ar[r] & 0
+    }
+  \]
+  First note that $p_*$ will be an isomorphism as it a surjective map between
+  finite groups. This makes $\tau_*$ the zero map making $\partial_*$ surjective.
+  However $\partial_*$ is already injective by exactness. So $\partial_*$ is an isomorphism
+  and thus $H_1(\bb{R}P^\infty;\bb{Z}_2)=\bb{Z}_2$. Using our isomorphisms for the
+  higher homology groups we get
+  \[
+    H_i(\bb{R}P^\infty;\bb{Z}_2) = \bb{Z}_2
+  \]
+  for all $i\geq 0$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
