@@ -133,7 +133,7 @@
 
 \begin{proof}
   Since we have a short exact sequence of chain complexes we can form
-  a long exact sequence in homology of the form
+  a long exact sequence in homology, using the zig-zag lemma, of the form
   \[
     \xymatrix{
       \cdots \ar[r]^{\partial_*} & H_i(X) \ar[r]^{n_*} & H_i(X) \ar[r]^{\varphi_*} & H_i(X;\bb{Z}_n) \ar[r] & \cdots
@@ -146,14 +146,19 @@
   which will be exact since the first map is quotienting out by the kernel of $\varphi_*$ and
   the latter map is surjective since $n-Torsion$ is defined as the kernel of $n_*$.
 
-  Suppose that $\rH_i(X;\bb{Z}_p)=0$ for all primes $p$. Then $p-Torsion(\rH_i(X))=0$ which
-  implies that $\rH_i(X)$ has no torsion. So we can then define an action of $\bb{Q}$ on
-  $H_i(X)$ by $(\frac{p}{q})\cdot g = h$ where $h$ is the unique solution to $p\cdot g=q\cdot h$.
-  Since there is no torsion this action will give us a vector space.
-
+  Suppose that $\rH(X;\bb{Z}_p)=0$ for all primes $p$. This then forces the other two groups
+  for the short exact sequence to be zero. It then follows that for all $n$ there is no
+  torsion in $\rH_i(X)$ and that $H_i(X)/nH_i(X)=0$ for all $i$ and $n$. Then we can define
+  an action of the rationals on $\rH_i(X)$ via $(\frac{p}{q})\cdot g=h$ where $h$ is the unique
+  solution to $p\cdot g = q\cdot h$. This will never be zero since there is no torsion in $\rH_i(X)$
+  and the fact that a solution always exists comes from $H_i(X)/nH_i(X)=0$. Thus $\rH_i(X)$ is
+  a $\bb{Q}$ vector space for all $i$.
+  
   Now suppose that $\rH_i(X)$ is a $\bb{Q}$ vector space. Then there is no torsion in
-  $\rH_i(X)$ as otherwise it wouldn't be a vector space. It then follows that $\rH(X;\bb{Z}_p)=0$
-  as both the left and right groups of the short exact sequence will be forced to be zero.
+  $\rH_i(X)$ as otherwise it wouldn't be a vector space. Moreover since the action of $\bb{Q}$ is
+  well defined we have that $H_i(X)/nH_i(X)$ will be zero for all $n$. Since there is no torsion
+  and the former group is zero it follows that the group $H_i(X;\bb{Z}_n)$ will be zero
+  since it is in the middle of the short exact sequence. 
 \end{proof}
 
 \sk
